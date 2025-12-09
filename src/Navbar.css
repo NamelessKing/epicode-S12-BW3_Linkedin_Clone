@@ -1,0 +1,100 @@
+.navbar-full {
+  height: 56px;
+}
+
+.navbar-logo img {
+  width: 34px;
+  height: 34px;
+}
+
+.search-container {
+  width: 270px;
+}
+
+.search-input {
+  border-radius: 5px;
+  background-color: #eef3f8;
+  border: 1px solid transparent;
+  font-size: 14px;
+}
+
+.search-input:focus {
+  box-shadow: none;
+  border: 1px solid #0a66c2;
+}
+
+.navbar-icons {
+  gap: 22px;
+  display: flex;
+}
+
+.navlink-wrapper {
+  text-align: center;
+  font-size: 12px;
+  color: grey;
+  cursor: pointer;
+}
+
+.navlink-wrapper span {
+  font-size: 12px;
+  color: #5e5e5e;
+}
+
+.navlink-wrapper .icon-colored {
+  font-size: 20px;
+  display: block;
+  margin: 0 auto;
+  color: #0a66c2;
+}
+
+.profile-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* PREMIUM */
+.premium-text {
+  color: #b8860b;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* RESPONSIVE BEHAVIOR LIKE LINKEDIN */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .search-container {
+    width: 200px;
+  }
+  .navbar-icons {
+    gap: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .search-container {
+    display: none !important;
+  }
+  .navlink-wrapper span {
+    display: none;
+  }
+  .premium-link {
+    display: none !important;
+  }
+}
+
+/* Mega screen */
+@media (min-width: 1800px) {
+  .search-container {
+    width: 380px;
+  }
+  .navbar-icons {
+    gap: 34px;
+  }
+}
