@@ -18,7 +18,7 @@ const ProfileHeaderCard = () => {
         </Row>
 
         <Row>
-          <img src={user?.image} className="w-25 profileImg" />
+          <img src={user?.image} className="w-25 profileImg" alt={`${user?.name} ${user?.surname} profile picture`} />
         </Row>
         <Card.Body>
           <Row className="cardBody">
@@ -30,11 +30,11 @@ const ProfileHeaderCard = () => {
             </Col>
             <Col>
               <Row>
-                <img className="rounded-circle" />
+                <img className="rounded-circle" alt="Title icon" />
                 <a href="">{user?.title}</a>
               </Row>
               <Row>
-                <img className="rounded-circle" />
+                <img className="rounded-circle" alt="Email icon" />
                 <a href="">{user?.email}</a>
               </Row>
             </Col>

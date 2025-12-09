@@ -1,5 +1,5 @@
-import { Container, Col, Row, Card } from "react-bootstrap"
-import { LuPencil } from "react-icons/lu"
+import { Container, Col, Row, Card } from "react-bootstrap";
+import { LuPencil } from "react-icons/lu";
 
 const ProfileServices = function () {
   return (
@@ -16,16 +16,14 @@ const ProfileServices = function () {
           </Row>
 
           <Card.Text>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi
-              quo pariatur porro sed reiciendis, aut animi est, voluptatem sint
-              dolores perferendis atque ab fugiat eligendi. Nemo saepe
-              accusantium mollitia veniam.
-            </p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi quo
+            pariatur porro sed reiciendis, aut animi est, voluptatem sint
+            dolores perferendis atque ab fugiat eligendi. Nemo saepe accusantium
+            mollitia veniam.
           </Card.Text>
         </Card.Body>
       </Card>
     </Container>
-  )
-}
-export default ProfileServices
+  );
+};
+export default ProfileServices;
