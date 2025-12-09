@@ -5,6 +5,7 @@ import Footer from "../layout/Footer";
 
 const ProfilePage = () => {
   return (
+    <>
       <Container fluid>
         <Row className="justify-content-center w-75 mx-auto">
           <Col xs={12} md={9}>
@@ -23,11 +24,10 @@ const ProfilePage = () => {
             <OtherProfiles />
             <Suggested /> */}
           </Col>
-        </Row>
-        <Footer />
+            </Row>
       </Container>
-      
-
+      <Footer />
+    </>
   )
 };
 
