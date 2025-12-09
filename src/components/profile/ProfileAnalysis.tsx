@@ -5,15 +5,14 @@ const ProfileAnalysis = function () {
   return (
     <>
     <Container className='my-3'>
-
       <Card>
         <Card.Body>
           <Card.Title>Analisi</Card.Title>
-          <Card.Text><BsEyeFill />Solo per te</Card.Text>
+          <Card.Text><BsEyeFill className='me-1'/>Solo per te</Card.Text>
           <Container>
             <Row className='row-cols-3'>
                 <Col className='p-0'>
-                    <p><BsFillPeopleFill /> 1 visualizzazione del profilo</p>
+                    <p><BsFillPeopleFill className='me-1'/> 1 visualizzazione del profilo</p>
                     <p>Scopri chi ha visto il tuo profilo.</p>
                 </Col>
                 <Col>
@@ -27,11 +26,11 @@ const ProfileAnalysis = function () {
                 </Col>
             </Row>
           </Container>
-          <hr />
-          <Card.Text>
-            <h6>Mostra tutte le analisi <BsArrowRight /></h6>
-          </Card.Text>
         </Card.Body>
+          <hr className='my-2'/>
+          <Card.Text className='m-2'>
+            <h6 className='text-center'>Mostra tutte le analisi <BsArrowRight /></h6>
+          </Card.Text>
       </Card>
     </Container>
     </>
