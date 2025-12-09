@@ -11,9 +11,9 @@ const ProfilePage = () => {
           <Col xs={12} md={9}>
             <ProfileHeaderCard />
             {
-              /* <AnalisysBox />/
+              /* <AnalisysBox />*/
               <InfoBox />
-              /
+              /*
             <Services />
             <Activities />
             <Experience />
@@ -26,7 +26,8 @@ const ProfilePage = () => {
             <h1>Colonna sinistra</h1>
             {/ <Settings />
             <OtherProfiles />
-            <Suggested /> */}
+            <Suggested /> */
+            }
           </Col>
         </Row>
       </Container>
