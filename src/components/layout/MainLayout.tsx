@@ -1,16 +1,21 @@
-import { type ReactNode } from "react";
+import TopNavbar from "./Navbar";
+import Footer from "./Footer";
 
 interface MainLayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div>
-      {/* 3-column layout placeholder */}
-      <div>{children}</div>
-    </div>
+    <>
+      <TopNavbar />
+
+      <main>{children}</main>
+
+      <Footer />
+    </>
   );
 };
 
 export default MainLayout;
+
