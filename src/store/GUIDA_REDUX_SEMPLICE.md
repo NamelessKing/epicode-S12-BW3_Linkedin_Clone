@@ -178,17 +178,17 @@ export default ProfileAbout;
 
 ## 📝 Regole Semplici
 
-### ✅ Quando usare `useAppSelector`:
+### ✅ Quando usare `useAppSelector`
 
 - Devi **leggere** i dati utente
 - In TUTTI i componenti che mostrano dati
 
-### ✅ Quando usare `useAppDispatch`:
+### ✅ Quando usare `useAppDispatch`
 
 - Devi **caricare/aggiornare** i dati
 - Di solito solo in ProfilePage o App.tsx
 
-### ❌ Cosa NON fare:
+### ❌ Cosa NON fare
 
 ```typescript
 // ❌ Non importare useSelector standard
@@ -224,7 +224,7 @@ import { useAppSelector } from "../store"; // GIUSTO
 
 ## 🎯 Checklist per ogni componente
 
-### Componente che CARICA i dati (es. ProfilePage):
+### Componente che CARICA i dati (es. ProfilePage)
 
 ```typescript
 import { useAppDispatch, useAppSelector } from "../store";
@@ -239,7 +239,7 @@ useEffect(() => {
 }, []);
 ```
 
-### Componente che LEGGE i dati (es. Navbar, Cards):
+### Componente che LEGGE i dati (es. Navbar, Cards)
 
 ```typescript
 import { useAppSelector } from "../store";
@@ -265,5 +265,3 @@ A: Redux condivide automaticamente lo stato tra tutti i componenti
 A: NO! Redux chiama l'API automaticamente quando fai `dispatch(fetchCurrentUser())`
 
 ---
-
-**Fine! Ora sapete tutto per usare Redux oggi 🚀**
