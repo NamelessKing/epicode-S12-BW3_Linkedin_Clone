@@ -1,22 +1,29 @@
-import { Navbar, Container, Form, FormControl, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { FaHome, FaUserFriends, FaSuitcase, FaBell, FaComments } from "react-icons/fa";
+import { Navbar, Container, Form, FormControl, Nav } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import {
+  FaHome,
+  FaUserFriends,
+  FaSuitcase,
+  FaBell,
+  FaComments,
+} from "react-icons/fa"
 
-import "./Navbar.css";
-import LinkedinLogo from "../../assets/linkedin-svgrepo-com.svg";
+import "./Navbar.css"
+import LinkedinLogo from "../../assets/linkedin-svgrepo-com.svg"
 
 const mockUser = {
   image: "https://cdn-icons-png.flaticon.com/512/847/847969.png",
-};
+}
 
 export default function TopNavbar() {
   return (
-    <Navbar bg="white" expand="lg" className="shadow-sm py-0 navbar-full">
-      <Container fluid className="px-4 d-flex align-items-center justify-content-between">
-
+    <Navbar bg="white" className="shadow-sm py-0 navbar-full">
+      <Container
+        fluid
+        className="px-4 d-flex align-items-center justify-content-between"
+      >
         {/* LEFT AREA */}
         <div className="d-flex align-items-center gap-3">
-
           {/* LOGO */}
           <Link to="/" className="navbar-logo">
             <img src={LinkedinLogo} alt="LinkedIn Logo" />
@@ -34,7 +41,6 @@ export default function TopNavbar() {
 
         {/* RIGHT AREA */}
         <Nav className="align-items-center navbar-icons">
-
           <Nav.Item className="navlink-wrapper">
             <FaHome className="icon-colored" />
             <span>Home</span>
@@ -62,11 +68,7 @@ export default function TopNavbar() {
 
           {/* USER AVATAR */}
           <Nav.Item className="navlink-wrapper">
-            <img
-              src={mockUser.image}
-              alt="me"
-              className="profile-avatar"
-            />
+            <img src={mockUser.image} alt="me" className="profile-avatar" />
             <span>Tu</span>
           </Nav.Item>
 
@@ -82,9 +84,8 @@ export default function TopNavbar() {
               Prova Premium per 0 EUR
             </a>
           </Nav.Item>
-
         </Nav>
       </Container>
     </Navbar>
-  );
+  )
 }

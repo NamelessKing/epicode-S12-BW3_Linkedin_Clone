@@ -1,7 +1,7 @@
-import { Container, Row, Col } from "react-bootstrap";
-import ProfileHeaderCard from "./ProfileHeaderCard";
-import Footer from "../layout/Footer";
-
+import { Container, Row, Col } from "react-bootstrap"
+import ProfileHeaderCard from "./ProfileHeaderCard"
+import InfoBox from "./InfoBox"
+import Footer from "../layout/Footer"
 
 const ProfilePage = () => {
   return (
@@ -10,25 +10,30 @@ const ProfilePage = () => {
         <Row className="justify-content-center w-75 mx-auto">
           <Col xs={12} md={9}>
             <ProfileHeaderCard />
-            {/* <AnalisysBox />
-            <InfoComponent />
+            {
+              /* <AnalisysBox />*/
+              <InfoBox />
+              /*
             <Services />
             <Activities />
             <Experience />
             <Education />
             <Certificates />
-            <Interests /> */}
+            <Interests /> /
+            }
           </Col>
-          <Col xs={12} md={3}>
-            {/* <Settings />
+          <Col xs={12} md={3} className="bg-dark">
+            <h1>Colonna sinistra</h1>
+            {/ <Settings />
             <OtherProfiles />
-            <Suggested /> */}
+            <Suggested /> */
+            }
           </Col>
-            </Row>
+        </Row>
       </Container>
       <Footer />
     </>
   )
-};
+}
 
-export default ProfilePage;
+export default ProfilePage
