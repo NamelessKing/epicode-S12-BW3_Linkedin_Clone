@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap"
 import ProfileHeaderCard from "./ProfileHeaderCard"
-import InfoBox from "../layout/InfoBox"
+import InfoBox from "./InfoBox"
 import Footer from "../layout/Footer"
 
 const ProfilePage = () => {
