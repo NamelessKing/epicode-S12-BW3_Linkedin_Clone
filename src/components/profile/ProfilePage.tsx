@@ -1,5 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import ProfileHeaderCard from "./ProfileHeaderCard";
+import Footer from "../layout/Footer";
+
 
 const ProfilePage = () => {
   return (
@@ -22,7 +24,9 @@ const ProfilePage = () => {
             <Suggested /> */}
           </Col>
         </Row>
+        <Footer />
       </Container>
+      
 
   )
 };
