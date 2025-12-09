@@ -202,7 +202,7 @@ import { useAppSelector } from "../store"; // GIUSTO
 
 ## 🔄 Flusso Completo per D1
 
-```
+```text
 1. App.tsx o ProfilePage
    ↓
    dispatch(fetchCurrentUser())  → Carica utente da API
