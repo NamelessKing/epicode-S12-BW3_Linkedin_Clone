@@ -4,13 +4,15 @@ import { BsEyeFill, BsFillPeopleFill, BsBarChartLineFill, BsSearch, BsArrowRight
 const ProfileAnalysis = function () {
   return (
     <>
+    <Container className='my-3'>
+
       <Card>
         <Card.Body>
           <Card.Title>Analisi</Card.Title>
           <Card.Text><BsEyeFill />Solo per te</Card.Text>
           <Container>
             <Row className='row-cols-3'>
-                <Col className='p-0 m-0 g-0'>
+                <Col className='p-0'>
                     <p><BsFillPeopleFill /> 1 visualizzazione del profilo</p>
                     <p>Scopri chi ha visto il tuo profilo.</p>
                 </Col>
@@ -31,6 +33,7 @@ const ProfileAnalysis = function () {
           </Card.Text>
         </Card.Body>
       </Card>
+    </Container>
     </>
   );
 };
