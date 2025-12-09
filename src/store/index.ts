@@ -10,11 +10,11 @@
  * import { fetchCurrentUser } from './store/userSlice';
  *
  * function MyComponent() {
- *   // Hook tipizzati per dispatch e selector
+ *   --Hook tipizzati per dispatch e selector
  *   const dispatch = useAppDispatch();
  *   const user = useAppSelector(state => state.user);
  *
- *   // Dispatch di azioni
+ *   --Dispatch di azioni
  *   useEffect(() => {
  *     dispatch(fetchCurrentUser());
  *   }, []);
