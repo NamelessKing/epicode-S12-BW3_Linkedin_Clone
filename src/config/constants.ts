@@ -8,7 +8,7 @@ export const BEARER_TOKENS = {
   fabio: 
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZTA5NWQzMjJmNTAwMTUxMDc2YjAiLCJpYXQiOjE3NjUyNjk2NTMsImV4cCI6MTc2NjQ3OTI1M30.UCscNj48J2uy4TsKqAh3HGMkEJxhrjsD4HvNdxlMixc", // TODO: Aggiungere token di Fabio
   andrea: 
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZWM3NGQzMjJmNTAwMTUxMDc2YmMiLCJpYXQiOjE3NjUyNzI2OTIsImV4cCI6MTc2NjQ4MjI5Mn0.0_k1YbD5s15uwfyQ1EaaUbasP1U7DX4-t5pF5m5F3Fw'", // TODO: Aggiungere token
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZWM3NGQzMjJmNTAwMTUxMDc2YmMiLCJpYXQiOjE3NjUyNzI2OTIsImV4cCI6MTc2NjQ4MjI5Mn0.0_k1YbD5s15uwfyQ1EaaUbasP1U7DX4-t5pF5m5F3Fw", // TODO: Aggiungere token
   matteo: 
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM3ZWMyYWQzMjJmNTAwMTUxMDc2YmIiLCJpYXQiOjE3NjUyNzI2MTgsImV4cCI6MTc2NjQ4MjIxOH0.PYrrt_AhpVChXPflvWJzUhMvSLklQR8oSb_kk6YhJiA", // TODO: Aggiungere token
   rossella:
@@ -16,4 +16,4 @@ export const BEARER_TOKENS = {
 };
 
 // Token attivo (cambiare in base a chi sta lavorando)
-export const ACTIVE_TOKEN = BEARER_TOKENS.tanjin;
+export const ACTIVE_TOKEN = BEARER_TOKENS.andrea;

@@ -1,14 +1,27 @@
+import ProfilePage from './components/profile/ProfilePage'
+import "bootstrap/dist/css/bootstrap.min.css"
+// import './App.css'
 import './App.css'
 import TopNavbar from './components/layout/Navbar'
-import ProfileAnalysis from './components/profile/ProfileAnalysis'
+import { useAppDispatch } from './store'
+import { useEffect } from 'react'
+import { fetchCurrentUser } from "./store/userSlice"
+
+
+
+
 
 function App() {
+  const dispatch = useAppDispatch()
 
+  useEffect(() => {
+    dispatch(fetchCurrentUser())
+  }, [dispatch])
 
   return (
     <>
-      <TopNavbar/>
-      <ProfileAnalysis/>
+      <TopNavbar />
+      <ProfilePage />
     </>
   )
 }
