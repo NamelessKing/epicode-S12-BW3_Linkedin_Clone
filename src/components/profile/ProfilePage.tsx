@@ -2,6 +2,8 @@ import { Container, Row, Col } from "react-bootstrap"
 import ProfileHeaderCard from "./ProfileHeaderCard"
 import InfoBox from "./InfoBox"
 import Footer from "../layout/Footer"
+import ProfileAnalysis from "./ProfileAnalysis"
+import ProfileServices from "./ProfileServices"
 
 const ProfilePage = () => {
   return (
@@ -10,24 +12,23 @@ const ProfilePage = () => {
         <Row className="justify-content-center w-75 mx-auto">
           <Col xs={12} md={9}>
             <ProfileHeaderCard />
-            {
-              /* <AnalisysBox />*/
-              <InfoBox />
-              /*
-            <Services />
+          
+              <ProfileAnalysis />
+            <InfoBox />
+            <ProfileServices />
+            {/* <Services />
             <Activities />
             <Experience />
             <Education />
             <Certificates />
-            <Interests /> /
-            }
+            <Interests /> / */}
+            
           </Col>
           <Col xs={12} md={3} className="bg-dark">
             <h1>Colonna sinistra</h1>
-            {/ <Settings />
+            {/* </ <Settings />
             <OtherProfiles />
-            <Suggested /> */
-            }
+            <Suggested /> */}
           </Col>
         </Row>
       </Container>

@@ -8,7 +8,7 @@ const ProfileServices = function () {
         <Card.Body>
           <Row>
             <Col>
-              <Card.Title as={"h2"}>Servizi</Card.Title>
+              <Card.Title>Servizi</Card.Title>
             </Col>
             <Col className="text-end">
               <LuPencil className="mt-2" style={{ cursor: "pointer" }} />

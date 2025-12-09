@@ -11,7 +11,7 @@ const InfoBox = function () {
         <Card.Body>
           <Row>
             <Col>
-              <Card.Title as={"h2"}>Informazioni</Card.Title>
+              <Card.Title>Informazioni</Card.Title>
             </Col>
             <Col className="text-end">
               <LuPencil
