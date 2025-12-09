@@ -1,26 +1,27 @@
 import { Container, Col, Row, Card, Button, Badge } from "react-bootstrap"
 import { LuPencil } from "react-icons/lu"
 import { useAppSelector } from "../../store"
+import "./profileHeaderCard.css"
 
 const ProfileHeaderCard = () => {
   const user = useAppSelector((state) => state.user.data)
 
   return (
     <Container className="my-3">
-      <Card>
-        <Row className="position-relative">
-          <Card.Img variant="top" src="https://placecats.com/400/100" />
+      <Card className="rounded-2">
+        <Row>
+          <Card.Img src="https://placecats.com/400/100" className="headerImg" />
 
-          <Badge pill className="position-absolute w">
+          <Badge bg="light" pill className="pill">
             <LuPencil />
           </Badge>
         </Row>
 
-        <Row className="position-absolute">
-          <img src={user?.image} className="rounded-circle border-2 w-25" />
+        <Row>
+          <img src={user?.image} className="w-25 profileImg" />
         </Row>
         <Card.Body>
-          <Row>
+          <Row className="cardBody">
             <Col>
               <Card.Title>
                 {user?.name} {user?.surname}
@@ -40,16 +41,16 @@ const ProfileHeaderCard = () => {
           </Row>
 
           <Row>
-            <Button variant="primary" className="w-25">
+            <Button className="btn btn-outline-info w-25">
               Disponibile per
             </Button>
-            <Button variant="primary" className="w-25">
+            <Button className="btn btn-outline-info w-25">
               Aggiungi sezione del profilo
             </Button>
-            <Button variant="primary" className="w-25">
+            <Button className="btn btn-outline-info w-25">
               Migliora profilo
             </Button>
-            <Button variant="primary" className="w-25">
+            <Button className="btn btn-outline-info w-25">
               Risorse
             </Button>
           </Row>
