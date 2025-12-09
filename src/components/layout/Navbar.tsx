@@ -17,7 +17,7 @@ const mockUser = {
 
 export default function TopNavbar() {
   return (
-    <Navbar bg="white" expand="lg" className="shadow-sm py-0 navbar-full">
+    <Navbar bg="white" className="shadow-sm py-0 navbar-full">
       <Container
         fluid
         className="px-4 d-flex align-items-center justify-content-between"
