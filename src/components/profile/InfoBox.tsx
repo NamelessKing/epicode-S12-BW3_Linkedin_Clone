@@ -6,7 +6,7 @@ const InfoBox = function () {
   const navigate = useNavigate()
   const user = useAppSelector((state) => state.user.data)
   return (
-    <Container>
+    <Container className="mb-3">
       <Card>
         <Card.Body>
           <Row>
