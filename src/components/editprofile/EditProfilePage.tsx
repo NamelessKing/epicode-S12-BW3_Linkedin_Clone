@@ -1,29 +1,29 @@
 import { Container, Row, Col } from "react-bootstrap";
-import HomeSidebarLeft from "./HomeSidebarLeft";
-import HomeFeed from "./HomeFeed";
-import HomeSidebarRight from "./HomeSidebarRight";
+import EditProfileSidebar from "./EditProfileSidebar";
+import EditProfileForm from "./EditProfileForm";
+import EditProfileSidebarRight from "./EditProfileSidebarRight";
 
-const Homepage = () => {
+const EditProfilePage = () => {
   return (
     <Container fluid>
       <Row className="justify-content-center w-75 mx-auto">
         {/* LEFT SIDEBAR */}
         <Col xs={12} md={3}>
-          <HomeSidebarLeft />
+          <EditProfileSidebar />
         </Col>
 
-        {/* MAIN FEED */}
+        {/* MAIN FORM */}
         <Col xs={12} md={6}>
-          <HomeFeed />
+          <EditProfileForm />
         </Col>
 
         {/* RIGHT SIDEBAR */}
         <Col xs={12} md={3}>
-          <HomeSidebarRight />
+          <EditProfileSidebarRight />
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default Homepage;
+export default EditProfilePage;
