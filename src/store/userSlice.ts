@@ -127,7 +127,7 @@ const userSlice = createSlice({
       })
       .addCase(updateCurrentUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload; // ⭐ Aggiorna il profilo nello stato globale
+        state.data = action.payload; 
       })
       .addCase(updateCurrentUser.rejected, (state, action) => {
         state.loading = false;
