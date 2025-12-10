@@ -6,8 +6,8 @@ import "./form.css";
 import { useAppSelector } from "../../store";
 import { useAppDispatch } from "../../store";
 import { useState, useEffect } from "react";
-import { updateCurrentUser } from "../../store/userSlice";
-import type { UpdatedUserProfile } from "../../types/user";
+import { updateCurrentUser, updateProfileImage } from "../../store/userSlice";
+import type { UpdatedUserProfile, UpdateProfileImage } from "../../types/user";
 
 const EditProfileForm = () => {
   // Hook per inviare azioni a Redux (es. aggiornare il profilo)
@@ -29,8 +29,12 @@ const EditProfileForm = () => {
     username: "",
     title: "",
     area: "",
-    image: "",
   });
+
+  const [imageFile, setImageFile] = useState<UpdateProfileImage>({
+    userId: "",
+    image: "",
+  })
 
   // State per mostrare l'alert di successo dopo il salvataggio
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -48,7 +52,6 @@ const EditProfileForm = () => {
         username: currentUser.username || "",
         title: currentUser.title || "",
         area: currentUser.area || "",
-        image: currentUser.image || "",
       });
     }
   }, [currentUser]); // Si ri-esegue solo se currentUser cambia
@@ -65,6 +68,7 @@ const EditProfileForm = () => {
       // Invia i dati a Redux, che chiama l'API PUT /profile
       // .unwrap() trasforma il risultato Redux in una Promise normale per usare try/catch
       await dispatch(updateCurrentUser(state)).unwrap();
+      await dispatch(updateProfileImage(imageFile))
 
       // Se tutto va bene, mostra l'alert di successo
       setSubmitSuccess(true);
@@ -200,12 +204,12 @@ const EditProfileForm = () => {
           <Form.Control
             type="File"
             placeholder={currentUser?.image}
-            value={state.image}
+            value={imageFile.image}
             onChange={(e) => {
-              setState({
-                ...state,
+              setImageFile({
+                ...imageFile,
                 image: e.target.value,
-              });
+              })
             }}
           />
         </Form.Group>
