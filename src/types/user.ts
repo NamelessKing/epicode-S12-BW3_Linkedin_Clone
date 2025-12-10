@@ -22,11 +22,10 @@ export interface UpdatedUserProfile {
   bio?: string;
   title?: string;
   area?: string;
-
+  image?: string;
 }
 
 export interface UpdateProfileImage {
   userId?: string;
-  image?: string;
+  image?: File;
 }
-
