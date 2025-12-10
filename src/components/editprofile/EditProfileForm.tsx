@@ -29,6 +29,7 @@ const EditProfileForm = () => {
     username: "",
     title: "",
     area: "",
+    image: "",
   });
 
   // State per mostrare l'alert di successo dopo il salvataggio
@@ -47,6 +48,7 @@ const EditProfileForm = () => {
         username: currentUser.username || "",
         title: currentUser.title || "",
         area: currentUser.area || "",
+        image: currentUser.image || "https//placecats.com/100/100",
       });
     }
   }, [currentUser]); // Si ri-esegue solo se currentUser cambia
@@ -93,7 +95,7 @@ const EditProfileForm = () => {
       )}
 
       <Form className="mt-4 px-3" onSubmit={modifyUser}>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3" controlId="name">
           <Form.Label>Nome</Form.Label>
           <Form.Control
             type="text"
@@ -107,7 +109,7 @@ const EditProfileForm = () => {
             }}
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3" controlId="surname">
           <Form.Label>Cognome</Form.Label>
           <Form.Control
             type="text"
@@ -121,7 +123,7 @@ const EditProfileForm = () => {
             }}
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
@@ -136,7 +138,7 @@ const EditProfileForm = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3" controlId="username">
           <Form.Label>Username</Form.Label>
           <Form.Control
             type="text"
@@ -151,7 +153,7 @@ const EditProfileForm = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" controlId="bio">
           <Form.Label>Biografia</Form.Label>
           <Form.Control
             type="textbox"
@@ -165,7 +167,7 @@ const EditProfileForm = () => {
             }}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" controlId="title">
           <Form.Label>Titolo</Form.Label>
           <Form.Control
             type="text"
@@ -179,7 +181,7 @@ const EditProfileForm = () => {
             }}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" controlId="area">
           <Form.Label>Area</Form.Label>
           <Form.Control
             type="text"
@@ -189,6 +191,20 @@ const EditProfileForm = () => {
               setState({
                 ...state,
                 area: e.target.value,
+              });
+            }}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="image">
+          <Form.Label>Immagine del profilo</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder={currentUser?.image}
+            value={state.image}
+            onChange={(e) => {
+              setState({
+                ...state,
+                image: e.target.value,
               });
             }}
           />

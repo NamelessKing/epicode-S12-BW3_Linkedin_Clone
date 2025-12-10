@@ -20,7 +20,7 @@ const ProfileHeaderCard = () => {
               className="m-0"
               style={{ cursor: "pointer" }}
               onClick={() => {
-                navigate("/modify")
+                navigate("/edit-profile")
               }}
             />
           </Badge>

@@ -1,8 +1,10 @@
 import { Container, Col, Row, Card } from "react-bootstrap"
 import { LuPencil } from "react-icons/lu"
+import { useNavigate } from "react-router-dom"
 import { BsArrowRight } from "react-icons/bs"
 
 const ProfileServices = function () {
+  const navigate = useNavigate()
   return (
     <Container className="mb-3">
       <Card>
@@ -12,7 +14,9 @@ const ProfileServices = function () {
               <Card.Title>Servizi</Card.Title>
             </Col>
             <Col className="text-end">
-              <LuPencil className="mt-2" style={{ cursor: "pointer" }} />
+              <LuPencil className="mt-2" style={{ cursor: "pointer" }} onClick={() => {
+                navigate("/edit-profile")
+              }} />
             </Col>
           </Row>
 

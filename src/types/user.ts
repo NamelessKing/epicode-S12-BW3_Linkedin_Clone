@@ -22,4 +22,5 @@ export interface UpdatedUserProfile {
   bio?: string;
   title?: string;
   area?: string;
+  image?: string;
 }
