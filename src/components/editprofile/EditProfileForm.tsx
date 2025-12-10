@@ -207,7 +207,7 @@ const EditProfileForm = () => {
             value={imageFile.image}
             onChange={(e) => {
               setImageFile({
-                ...imageFile,
+                userId: "rossella",
                 image: e.target.value,
               })
             }}

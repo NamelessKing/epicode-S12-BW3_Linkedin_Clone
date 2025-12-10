@@ -135,7 +135,7 @@ export const updateUserImage = async (profileImage: UpdateProfileImage): Promise
   const formData = new FormData()
   formData.append("profile", profileImage.image!)
 
-  const url = `${API_BASE_URL}/profile${profileImage.userId!}/picture`
+  const url = `${API_BASE_URL}/profile/${profileImage.userId!}/picture`
   const response = await fetch(url, {
     method: "POST",
     headers: { Authorization: `BEARER ${ACTIVE_TOKEN}` },
