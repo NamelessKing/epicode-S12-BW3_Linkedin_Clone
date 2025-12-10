@@ -1,10 +1,11 @@
-import { Container, Row, Col } from "react-bootstrap";
-import ProfileHeaderCard from "./ProfileHeaderCard";
-import InfoBox from "./InfoBox";
-import Footer from "../layout/Footer";
-import ProfileAnalysis from "./ProfileAnalysis";
-import ProfileServices from "./ProfileServices";
-import ProfileSidebar from "./ProfileSidebar";
+import { Container, Row, Col } from "react-bootstrap"
+import ProfileHeaderCard from "./ProfileHeaderCard"
+import InfoBox from "./InfoBox"
+import Footer from "../layout/Footer"
+import ProfileAnalysis from "./ProfileAnalysis"
+import ProfileServices from "./ProfileServices"
+import ProfileSidebar from "./ProfileSidebar"
+import ProfileExperiences from "./ProfileExperiences"
 
 const ProfilePage = () => {
   return (
@@ -17,6 +18,7 @@ const ProfilePage = () => {
             <ProfileAnalysis />
             <InfoBox />
             <ProfileServices />
+            <ProfileExperiences />
             {/* <Services />
             <Activities />
             <Experience />
@@ -31,7 +33,7 @@ const ProfilePage = () => {
       </Container>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default ProfilePage;
+export default ProfilePage
