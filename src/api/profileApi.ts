@@ -7,7 +7,7 @@
  */
 
 import { API_BASE_URL, ACTIVE_TOKEN } from "../config/constants";
-import type { UpdatedUserProfile, UserProfile } from "../types/user";
+import type { UpdateProfileImage, UpdatedUserProfile, UserProfile } from "../types/user";
 
 /**
  * HTTP Client generico per le chiamate API
@@ -125,3 +125,27 @@ export const updateUserProfile = async (
 ): Promise<UserProfile> => {
   return httpClient("/profile/", "PUT", profileData);
 };
+
+/**
+ *
+ * @param profileImage - Dati parziali del profilo da aggiornare
+ * @returns Promise con il profilo aggiornato
+ */
+export const updateUserImage = async (profileImage: UpdateProfileImage): Promise<UserProfile> => {
+  const formData = new FormData()
+  formData.append("profile", profileImage.image!)
+
+  const url = `${API_BASE_URL}/profile/${profileImage.userId!}/picture`
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { Authorization: `BEARER ${ACTIVE_TOKEN}` },
+    body: formData,
+  })
+  if (!response.ok) {
+    // const errorText = await response.text()
+    throw new Error(`Errore nella fetch, status code: ${response.status}`)
+  }
+
+  return response.json()
+}
+

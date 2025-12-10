@@ -25,7 +25,7 @@
  */
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import type { UserProfile, UpdatedUserProfile } from "../types/user";
+import type { UserProfile, UpdatedUserProfile, UpdatedImage, UpdateProfileImage } from "../types/user";
 import { fetchCurrentUserProfile, updateUserProfile } from "../api/profileApi";
 
 /**
@@ -81,6 +81,14 @@ export const updateCurrentUser = createAsyncThunk(
     return response;
   }
 );
+
+export const updateProfileImage = createAsyncThunk(
+  "user/updateUserImage",
+  async (imageToUpdate: UpdateProfileImage) => {
+    const response = await updateProfileImage(imageToUpdate);
+    return response
+  }
+)
 
 /**
  * User Slice - gestisce lo stato globale dell'utente

@@ -24,3 +24,9 @@ export interface UpdatedUserProfile {
   area?: string;
   image?: string;
 }
+
+export interface UpdateProfileImage {
+  userId?: string;
+  image?: File;
+}
+

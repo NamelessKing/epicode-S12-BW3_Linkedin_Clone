@@ -8,6 +8,7 @@ import { useAppDispatch } from "../../store";
 import { useState, useEffect } from "react";
 import { updateCurrentUser } from "../../store/userSlice";
 import type { UpdatedUserProfile } from "../../types/user";
+import { updateUserImage } from "../../api/profileApi";
 
 const EditProfileForm = () => {
   // Hook per inviare azioni a Redux (es. aggiornare il profilo)
@@ -48,7 +49,7 @@ const EditProfileForm = () => {
         username: currentUser.username || "",
         title: currentUser.title || "",
         area: currentUser.area || "",
-        image: currentUser.image || "https//placecats.com/100/100",
+        image: currentUser.image || "",
       });
     }
   }, [currentUser]); // Si ri-esegue solo se currentUser cambia
@@ -57,7 +58,7 @@ const EditProfileForm = () => {
   const modifyUser = async (e: React.FormEvent) => {
     // Previene il reload della pagina (comportamento di default dei form HTML)
     e.preventDefault();
-
+    
     // Nasconde l'alert di successo se era ancora visibile
     setSubmitSuccess(false);
 
@@ -198,7 +199,7 @@ const EditProfileForm = () => {
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>Immagine del profilo</Form.Label>
           <Form.Control
-            type="text"
+            type="File"
             placeholder={currentUser?.image}
             value={state.image}
             onChange={(e) => {
