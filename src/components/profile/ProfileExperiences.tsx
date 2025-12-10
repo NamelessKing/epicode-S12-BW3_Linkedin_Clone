@@ -1,6 +1,7 @@
 import { Row, Col, Container, Card } from "react-bootstrap"
 import { LuPencil, LuPlus } from "react-icons/lu"
 import { BsArrowRight } from "react-icons/bs"
+
 type ExperienceReference = {
   role: string
   company: string
@@ -103,7 +104,7 @@ const ProfileExperiences = function () {
           ))}
         </Card.Body>
         <hr className="m-0 p-0" />
-        <h6 className="text-center my-3">
+        <h6 className="text-center my-3" style={{ cursor: "pointer" }}>
           Mostra tutte le esperienze({consultedExperiences.length})&nbsp;
           <BsArrowRight />
         </h6>
