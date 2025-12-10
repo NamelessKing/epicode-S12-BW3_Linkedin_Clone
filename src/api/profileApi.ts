@@ -7,7 +7,7 @@
  */
 
 import { API_BASE_URL, ACTIVE_TOKEN } from "../config/constants";
-import type { UserProfile } from "../types/user";
+import type { UpdatedUserProfile, UserProfile } from "../types/user";
 
 /**
  * HTTP Client generico per le chiamate API
@@ -121,7 +121,7 @@ export const fetchUserProfile = async (
  * @returns Promise con il profilo aggiornato
  */
 export const updateUserProfile = async (
-  profileData: Partial<UserProfile>
+  profileData: UpdatedUserProfile
 ): Promise<UserProfile> => {
   return httpClient("/profile/", "PUT", profileData);
 };

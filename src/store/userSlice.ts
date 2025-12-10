@@ -25,7 +25,7 @@
  */
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import type { UserProfile } from "../types/user";
+import type { UserProfile, UpdatedUserProfile } from "../types/user";
 import { fetchCurrentUserProfile, updateUserProfile } from "../api/profileApi";
 
 /**
@@ -76,7 +76,7 @@ export const fetchCurrentUser = createAsyncThunk(
  */
 export const updateCurrentUser = createAsyncThunk(
   "user/updateCurrentUser",
-  async (profileData: Partial<UserProfile>) => {
+  async (profileData: UpdatedUserProfile) => {
     const response = await updateUserProfile(profileData);
     return response;
   }
