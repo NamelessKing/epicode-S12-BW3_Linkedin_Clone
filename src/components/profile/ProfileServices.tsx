@@ -1,5 +1,6 @@
-import { Container, Col, Row, Card } from "react-bootstrap";
-import { LuPencil } from "react-icons/lu";
+import { Container, Col, Row, Card } from "react-bootstrap"
+import { LuPencil } from "react-icons/lu"
+import { BsArrowRight } from "react-icons/bs"
 
 const ProfileServices = function () {
   return (
@@ -21,9 +22,17 @@ const ProfileServices = function () {
             dolores perferendis atque ab fugiat eligendi. Nemo saepe accusantium
             mollitia veniam.
           </Card.Text>
+          <hr />
+          <Card.Text
+            as={"h6"}
+            className="text-center"
+            style={{ cursor: "pointer" }}
+          >
+            Mostra tutti i servizi <BsArrowRight />
+          </Card.Text>
         </Card.Body>
       </Card>
     </Container>
-  );
-};
-export default ProfileServices;
+  )
+}
+export default ProfileServices
