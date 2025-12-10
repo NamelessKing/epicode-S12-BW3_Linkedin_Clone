@@ -15,12 +15,11 @@ export interface UserProfile {
 }
 
 export interface UpdatedUserProfile {
-  name: string;
-  surname: string;
-  email: string;
-  username: string;
-  bio: string;
-  title: string;
-  area: string;
-  image: string;
+  name?: string;
+  surname?: string;
+  email?: string;
+  username?: string;
+  bio?: string;
+  title?: string;
+  area?: string;
 }
