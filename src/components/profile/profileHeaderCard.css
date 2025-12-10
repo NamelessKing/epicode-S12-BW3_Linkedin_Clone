@@ -1,6 +1,7 @@
 .headerImg {
   border-radius: inherit;
   position: relative;
+  max-height: 400px;
 }
 
 .pill {
