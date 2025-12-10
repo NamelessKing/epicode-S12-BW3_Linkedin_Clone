@@ -8,7 +8,6 @@ import { useAppDispatch } from "../../store";
 import { useState, useEffect } from "react";
 import { updateCurrentUser } from "../../store/userSlice";
 import type { UpdatedUserProfile } from "../../types/user";
-import { updateUserImage } from "../../api/profileApi";
 
 const EditProfileForm = () => {
   // Hook per inviare azioni a Redux (es. aggiornare il profilo)

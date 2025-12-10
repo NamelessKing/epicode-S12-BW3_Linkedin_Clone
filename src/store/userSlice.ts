@@ -25,8 +25,16 @@
  */
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import type { UserProfile, UpdatedUserProfile, UpdatedImage, UpdateProfileImage } from "../types/user";
-import { fetchCurrentUserProfile, updateUserProfile } from "../api/profileApi";
+import type {
+  UserProfile,
+  UpdatedUserProfile,
+  UpdateProfileImage,
+} from "../types/user";
+import {
+  fetchCurrentUserProfile,
+  updateUserImage,
+  updateUserProfile,
+} from "../api/profileApi";
 
 /**
  * Interfaccia dello stato utente
@@ -84,11 +92,11 @@ export const updateCurrentUser = createAsyncThunk(
 
 export const updateProfileImage = createAsyncThunk(
   "user/updateUserImage",
-  async (imageToUpdate: UpdateProfileImage) => {
-    const response = await updateProfileImage(imageToUpdate);
-    return response
+  async (imageToUpdate: UpdateProfileImage): Promise<UserProfile> => {
+    const response = await updateUserImage(imageToUpdate);
+    return response;
   }
-)
+);
 
 /**
  * User Slice - gestisce lo stato globale dell'utente
@@ -135,7 +143,7 @@ const userSlice = createSlice({
       })
       .addCase(updateCurrentUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload; 
+        state.data = action.payload;
       })
       .addCase(updateCurrentUser.rejected, (state, action) => {
         state.loading = false;
