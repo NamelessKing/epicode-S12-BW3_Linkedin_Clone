@@ -1,0 +1,14 @@
+.btn{
+    padding: 0.5rem 2rem;
+    max-height: none;
+}
+
+/* Add your existing CSS styles here */
+
+.current-profile-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #0a66c2;
+}

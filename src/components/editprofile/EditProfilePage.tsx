@@ -1,7 +1,7 @@
-import { Container, Row, Col } from "react-bootstrap";
-import EditProfileSidebar from "./EditProfileSidebar";
-import EditProfileForm from "./EditProfileForm";
-import EditProfileSidebarRight from "./EditProfileSidebarRight";
+import { Container, Row, Col } from "react-bootstrap"
+import EditProfileSidebar from "./EditProfileSidebar"
+import EditProfileForm from "./EditProfileForm"
+import EditProfileSidebarRight from "./EditProfileSidebarRight"
 
 const EditProfilePage = () => {
   return (
@@ -23,7 +23,7 @@ const EditProfilePage = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default EditProfilePage;
+export default EditProfilePage

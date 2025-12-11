@@ -18,7 +18,7 @@ const InfoBox = function () {
                 className="mt-2"
                 style={{ cursor: "pointer" }}
                 onClick={() => {
-                  navigate("/modify")
+                  navigate("/edit-profile")
                 }}
               />
             </Col>

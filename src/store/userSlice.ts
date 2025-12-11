@@ -25,8 +25,16 @@
  */
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import type { UserProfile } from "../types/user";
-import { fetchCurrentUserProfile } from "../api/profileApi";
+import type {
+  UserProfile,
+  UpdatedUserProfile,
+  UpdateProfileImage,
+} from "../types/user";
+import {
+  fetchCurrentUserProfile,
+  updateUserImage,
+  updateUserProfile,
+} from "../api/profileApi";
 
 /**
  * Interfaccia dello stato utente
@@ -72,6 +80,25 @@ export const fetchCurrentUser = createAsyncThunk(
 );
 
 /**
+ * Thunk per aggiornare il profilo utente corrente
+ */
+export const updateCurrentUser = createAsyncThunk(
+  "user/updateCurrentUser",
+  async (profileData: UpdatedUserProfile) => {
+    const response = await updateUserProfile(profileData);
+    return response;
+  }
+);
+
+export const updateProfileImage = createAsyncThunk(
+  "user/updateUserImage",
+  async (imageToUpdate: UpdateProfileImage): Promise<UserProfile> => {
+    const response = await updateUserImage(imageToUpdate);
+    return response;
+  }
+);
+
+/**
  * User Slice - gestisce lo stato globale dell'utente
  */
 const userSlice = createSlice({
@@ -108,6 +135,31 @@ const userSlice = createSlice({
       .addCase(fetchCurrentUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to fetch user";
+      })
+      // UPDATE USER
+      .addCase(updateCurrentUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateCurrentUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(updateCurrentUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to update user";
+      })
+      .addCase(updateProfileImage.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateProfileImage.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(updateProfileImage.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to update image";
       });
   },
 });

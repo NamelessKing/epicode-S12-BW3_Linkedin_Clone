@@ -13,3 +13,19 @@ export interface UserProfile {
   updatedAt: string;
   __v: number;
 }
+
+export interface UpdatedUserProfile {
+  name?: string;
+  surname?: string;
+  email?: string;
+  username?: string;
+  bio?: string;
+  title?: string;
+  area?: string;
+  image?: string;
+}
+
+export interface UpdateProfileImage {
+  userId?: string;
+  image?: File;
+}
