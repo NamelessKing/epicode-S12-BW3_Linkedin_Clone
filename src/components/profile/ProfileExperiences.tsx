@@ -1,4 +1,4 @@
-import { Row, Col, Container, Card, Form, Button } from "react-bootstrap"
+import { Row, Col, Container, Card, Form, Modal, Button } from "react-bootstrap"
 import { LuPencil, LuPlus } from "react-icons/lu"
 import { BsArrowRight } from "react-icons/bs"
 import { useState, useEffect } from "react"
@@ -113,9 +113,9 @@ const ProfileExperiences = function () {
               <LuPencil className="mt-2" style={{ cursor: "pointer" }} />
             </Col>
           </Row>
-
+        <Modal show={show} onHide={handleClose}>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3 d-flex flex-row flex-wrap justify-content-around ">
+            <Form.Group className="d-flex flex-row flex-wrap justify-content-around py-3">
               <Col className="mb-2" xs={12} md={5}>
                 <Form.Label>Ruolo</Form.Label>
                 <Form.Control type="textarea" name="role" required/>
@@ -143,13 +143,14 @@ const ProfileExperiences = function () {
               <Col xs={12} className="text-center">
                 <Button
                   type="submit"
-                  className="bg-primary text-light px-3 m-0"
+                  className="bg-primary text-light px-3 m-0 mt-3"
                 >
                   Submit
                 </Button>
               </Col>
             </Form.Group>
           </Form>
+          </Modal>
 
           {esperienze.map((experience, i) => (
             <Container key={experience._id}>
