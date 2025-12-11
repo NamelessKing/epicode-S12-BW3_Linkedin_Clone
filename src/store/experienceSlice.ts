@@ -126,7 +126,7 @@ extraReducers: (builder) => {
         })
         .addCase(fetchAllExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "Failed to fetch experiences"
+            state.error = action.error.message || "Failed to fetch experiences"
         })
         //fetch GET singola
         .addCase(fetchExp.pending, (state) => {
@@ -139,56 +139,59 @@ extraReducers: (builder) => {
         })
         .addCase(fetchExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "Failed to fetch experience"
+            state.error = action.error.message || "Failed to fetch experience"
         })
         // fetch POST
         .addCase(createExp.pending, (state) => {
             state.loading = true;
-            state.data = action.payload
+            state.error = null
         })
         .addCase(createExp.fulfilled, (state, action) => {
             state.loading = false;
-            state.error = action.error.message
+            state.data = action.payload
         })
         .addCase(createExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "Failed to fetch experience"
+            state.error = action.error.message || "Failed to fetch experience"
         })
+        // fetch PUT
         .addCase(updateExp.pending, (state) => {
             state.loading = true;
-            state.data = action.payload
+            state.error = null
         })
         .addCase(updateExp.fulfilled, (state, action) => {
             state.loading = false;
-            state.error = action.error.message
+            state.data = action.payload
         })
         .addCase(updateExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "Failed to fetch experience"
+            state.error = action.error.message || "Failed to fetch experience"
         })
+        // fetch DELETE
         .addCase(deleteExp.pending, (state) => {
             state.loading = true;
-            state.data = action.payload
+            state.error = null
         })
         .addCase(deleteExp.fulfilled, (state, action) => {
             state.loading = false;
-            state.error = action.error.message
+            state.data = action.payload
         })
         .addCase(deleteExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "Failed to fetch experience"
+            state.error = action.error.message || "Failed to fetch experience"
         })
-        .addCase(updateImgExp.pending, (state) => {
+        //fetch img
+        .addCase(updateImgExp.pending, (state, action) => {
             state.loading = true;
             state.data = action.payload
         })
         .addCase(updateImgExp.fulfilled, (state, action) => {
             state.loading = false;
-            state.error = action.error.message
+            state.data = action.payload
         })
         .addCase(updateImgExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "Failed to fetch experience"
+            state.error = action.error.message || "Failed to fetch experience"
         })
 }
 });
