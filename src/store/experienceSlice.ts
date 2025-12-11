@@ -91,8 +91,8 @@ export const deleteExp = createAsyncThunk(
     userId: string;
     experienceId: string;
   }) => {
-    const response = await deleteExperience(userId, experienceId);
-    return response;
+    await deleteExperience(userId, experienceId);
+    return experienceId;
   }
 );
 
@@ -135,7 +135,12 @@ extraReducers: (builder) => {
         })
         .addCase(fetchExp.fulfilled, (state, action) => {
             state.loading = false;
-            state.data = action.payload
+            const index = state.data.findIndex((exp) => 
+               exp._id === action.payload._id
+            )
+            if( index !== -1 ){ 
+                state.data[index] = action.payload
+            } else { state.data.push(action.payload)}
         })
         .addCase(fetchExp.rejected, (state, action) => {
             state.loading = false;
@@ -148,7 +153,7 @@ extraReducers: (builder) => {
         })
         .addCase(createExp.fulfilled, (state, action) => {
             state.loading = false;
-            state.data = action.payload
+            state.data.push(action.payload)
         })
         .addCase(createExp.rejected, (state, action) => {
             state.loading = false;
@@ -161,7 +166,12 @@ extraReducers: (builder) => {
         })
         .addCase(updateExp.fulfilled, (state, action) => {
             state.loading = false;
-            state.data = action.payload
+            const index = state.data.findIndex((exp) => 
+               exp._id === action.payload._id
+            ) 
+            if( index !== -1 ){ 
+                state.data[index] = action.payload
+            }
         })
         .addCase(updateExp.rejected, (state, action) => {
             state.loading = false;
@@ -174,20 +184,25 @@ extraReducers: (builder) => {
         })
         .addCase(deleteExp.fulfilled, (state, action) => {
             state.loading = false;
-            state.data = action.payload
+            state.data = state.data.filter((exp) => exp._id !== action.payload)
         })
         .addCase(deleteExp.rejected, (state, action) => {
             state.loading = false;
             state.error = action.error.message || "Failed to fetch experience"
         })
         //fetch img
-        .addCase(updateImgExp.pending, (state, action) => {
+        .addCase(updateImgExp.pending, (state) => {
             state.loading = true;
-            state.data = action.payload
+            state.error = null
         })
         .addCase(updateImgExp.fulfilled, (state, action) => {
             state.loading = false;
-            state.data = action.payload
+            const index = state.data.findIndex((exp) => 
+               exp._id === action.payload._id
+            ) 
+            if( index !== -1 ){ 
+                state.data[index] = action.payload
+            }
         })
         .addCase(updateImgExp.rejected, (state, action) => {
             state.loading = false;
