@@ -27,7 +27,7 @@ const experienceInitialState: ExperiencesState = {
 };
 
 export const fetchAllExp = createAsyncThunk(
-  "experience/fetchAll",
+  'experience/fetchAll',
   async (userId: string) => {
     const response = await fetchAllExperiences(userId);
     return response;
@@ -35,12 +35,71 @@ export const fetchAllExp = createAsyncThunk(
 );
 
 export const fetchExp = createAsyncThunk(
-  "experience/fetchAll",
-  async ({userId, experienceId} : {userId: string, experienceId: string}) => {
+  'experience/fetchAll',
+  async ({
+    userId,
+    experienceId
+  }: {
+    userId: string;
+    experienceId: string;
+  }) => {
     const response = await fetchExperience(userId, experienceId);
     return response;
   }
 );
 
+export const createExp = createAsyncThunk(
+  'expercience/create',
+  async ({
+    userId,
+    experienceData
+  }: {
+    userId: string;
+    experienceData: CreateExperience;
+  }) => {
+    const response = await createExperience(userId, experienceData);
+    return response;
+  }
+);
 
+export const updateExp = createAsyncThunk(
+  'experience/update',
+  async ({
+    userId,
+    experienceId,
+    experienceData
+  }: {
+    userId: string;
+    experienceId: string;
+    experienceData: UpdateExperience;
+  }) => {
+    const response = await updateExperience(
+      userId,
+      experienceId,
+      experienceData
+    );
+    return response;
+  }
+);
 
+export const deleteExp = createAsyncThunk(
+  'experience/delete',
+  async ({
+    userId,
+    experienceId
+  }: {
+    userId: string;
+    experienceId: string;
+  }) => {
+    const response = await deleteExperience(userId, experienceId);
+    return response;
+  }
+);
+
+export const updateImgExp = createAsyncThunk(
+  'experience/updateImage',
+  async (experienceImage: UpdateExperienceImage) => {
+    const response = await updateExperienceImage(experienceImage);
+    return response;
+  }
+);

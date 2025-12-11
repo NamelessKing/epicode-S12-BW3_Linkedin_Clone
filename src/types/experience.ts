@@ -22,11 +22,17 @@ export interface CreateExperience{
     area: string;
 }
 
-export interface updateExperience{
+export interface UpdateExperience{
     role?: string;
     company?: string;
     startDate?: string;
     endDate?: string | null;
     description?: string;
     area?: string;
+}
+
+export interface UpdateExperienceImage{
+    userId: string;
+    experienceId: string;
+    image: File;
 }
