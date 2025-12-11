@@ -115,30 +115,33 @@ const experienceSlice = createSlice({
   },
 extraReducers: (builder) => {
     builder
+        //fetch GET All
         .addCase(fetchAllExp.pending, (state) => {
             state.loading = true;
-            state.data = action.payload
+            state.error = null
         })
         .addCase(fetchAllExp.fulfilled, (state, action) => {
             state.loading = false;
-            state.error = action.error.message
+            state.data = action.payload
         })
         .addCase(fetchAllExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "fAILED TO FETCH USER"
+            state.data = action.error.message || "Failed to fetch experiences"
         })
+        //fetch GET singola
         .addCase(fetchExp.pending, (state) => {
             state.loading = true;
-            state.data = action.payload
+            state.error = null
         })
         .addCase(fetchExp.fulfilled, (state, action) => {
             state.loading = false;
-            state.error = action.error.message
+            state.data = action.payload
         })
         .addCase(fetchExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "fAILED TO FETCH USER"
+            state.data = action.error.message || "Failed to fetch experience"
         })
+        // fetch POST
         .addCase(createExp.pending, (state) => {
             state.loading = true;
             state.data = action.payload
@@ -149,7 +152,7 @@ extraReducers: (builder) => {
         })
         .addCase(createExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "fAILED TO FETCH USER"
+            state.data = action.error.message || "Failed to fetch experience"
         })
         .addCase(updateExp.pending, (state) => {
             state.loading = true;
@@ -161,7 +164,7 @@ extraReducers: (builder) => {
         })
         .addCase(updateExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "fAILED TO FETCH USER"
+            state.data = action.error.message || "Failed to fetch experience"
         })
         .addCase(deleteExp.pending, (state) => {
             state.loading = true;
@@ -173,7 +176,7 @@ extraReducers: (builder) => {
         })
         .addCase(deleteExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "fAILED TO FETCH USER"
+            state.data = action.error.message || "Failed to fetch experience"
         })
         .addCase(updateImgExp.pending, (state) => {
             state.loading = true;
@@ -185,7 +188,10 @@ extraReducers: (builder) => {
         })
         .addCase(updateImgExp.rejected, (state, action) => {
             state.loading = false;
-            state.data = action.error.message || "fAILED TO FETCH USER"
+            state.data = action.error.message || "Failed to fetch experience"
         })
 }
 });
+
+export const { clearExp } = experienceSlice.actions;
+
