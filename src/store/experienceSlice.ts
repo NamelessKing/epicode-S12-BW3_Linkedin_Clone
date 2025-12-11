@@ -213,3 +213,4 @@ extraReducers: (builder) => {
 
 export const { clearExp } = experienceSlice.actions;
 
+export default experienceSlice.reducer
