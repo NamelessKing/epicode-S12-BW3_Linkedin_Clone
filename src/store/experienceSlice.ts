@@ -106,11 +106,86 @@ export const updateImgExp = createAsyncThunk(
 
 const experienceSlice = createSlice({
   name: 'experience',
-  experienceInitialState,
+  initialState: experienceInitialState,
   reducers: {
     clearExp: (state) => {
-      state.data = null;
+      state.data = [];
       state.error = null;
     }
-  }
+  },
+extraReducers: (builder) => {
+    builder
+        .addCase(fetchAllExp.pending, (state) => {
+            state.loading = true;
+            state.data = action.payload
+        })
+        .addCase(fetchAllExp.fulfilled, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message
+        })
+        .addCase(fetchAllExp.rejected, (state, action) => {
+            state.loading = false;
+            state.data = action.error.message || "fAILED TO FETCH USER"
+        })
+        .addCase(fetchExp.pending, (state) => {
+            state.loading = true;
+            state.data = action.payload
+        })
+        .addCase(fetchExp.fulfilled, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message
+        })
+        .addCase(fetchExp.rejected, (state, action) => {
+            state.loading = false;
+            state.data = action.error.message || "fAILED TO FETCH USER"
+        })
+        .addCase(createExp.pending, (state) => {
+            state.loading = true;
+            state.data = action.payload
+        })
+        .addCase(createExp.fulfilled, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message
+        })
+        .addCase(createExp.rejected, (state, action) => {
+            state.loading = false;
+            state.data = action.error.message || "fAILED TO FETCH USER"
+        })
+        .addCase(updateExp.pending, (state) => {
+            state.loading = true;
+            state.data = action.payload
+        })
+        .addCase(updateExp.fulfilled, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message
+        })
+        .addCase(updateExp.rejected, (state, action) => {
+            state.loading = false;
+            state.data = action.error.message || "fAILED TO FETCH USER"
+        })
+        .addCase(deleteExp.pending, (state) => {
+            state.loading = true;
+            state.data = action.payload
+        })
+        .addCase(deleteExp.fulfilled, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message
+        })
+        .addCase(deleteExp.rejected, (state, action) => {
+            state.loading = false;
+            state.data = action.error.message || "fAILED TO FETCH USER"
+        })
+        .addCase(updateImgExp.pending, (state) => {
+            state.loading = true;
+            state.data = action.payload
+        })
+        .addCase(updateImgExp.fulfilled, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message
+        })
+        .addCase(updateImgExp.rejected, (state, action) => {
+            state.loading = false;
+            state.data = action.error.message || "fAILED TO FETCH USER"
+        })
+}
 });
