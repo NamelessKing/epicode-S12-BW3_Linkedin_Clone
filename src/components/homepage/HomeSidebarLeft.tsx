@@ -1,6 +1,9 @@
 import { Card } from "react-bootstrap";
+import { useAppSelector } from "../../store";
 
 const HomeSidebarLeft = () => {
+ const currentUser = useAppSelector((state) => state.user.data);
+
   return (
     <Card className="mb-3 shadow-sm rounded overflow-hidden">
       {/* Banner in alto */}
@@ -20,8 +23,8 @@ const HomeSidebarLeft = () => {
         style={{ marginTop: "-36px" }}
       >
         <img
-          src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200"
-          alt="Jess Williams"
+          src={currentUser?.image}
+          alt="immagine del profilo"
           width={72}
           height={72}
           className="rounded-circle border border-2 border-white"
@@ -29,9 +32,9 @@ const HomeSidebarLeft = () => {
       </div>
 
       <Card.Body className="text-center pb-3">
-        <h6 className="mb-0">Jess Williams</h6>
+        <h6 className="mb-0">{currentUser?.name} {currentUser?.surname}</h6>
         <small className="text-muted">
-          Senior Manager at Denali Bank
+          {currentUser?.title}
         </small>
 
         <hr className="my-3" />
@@ -41,14 +44,14 @@ const HomeSidebarLeft = () => {
             <div className="text-primary fw-bold" style={{ fontSize: "1.3rem" }}>
               73
             </div>
-            <small className="text-muted">Who&apos;s viewed your profile</small>
+            <small className="text-muted">Visualizzazioni del tuo profilo</small>
           </div>
 
           <div>
             <div className="text-primary fw-bold" style={{ fontSize: "1.3rem" }}>
               35
             </div>
-            <small className="text-muted">Views of your posts</small>
+            <small className="text-muted">Visualizzazioni dei tuoi post</small>
           </div>
         </div>
       </Card.Body>
