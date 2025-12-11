@@ -9,6 +9,7 @@ import { useAppDispatch } from "./store";
 import { useEffect } from "react";
 import { fetchCurrentUser } from "./store/userSlice";
 import { Routes, Route } from "react-router-dom";
+import LoginForm from "./components/login/loginForm";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -21,6 +22,7 @@ function App() {
     <>
       <TopNavbar />
       <Routes>
+        <Route path="/login" element={<LoginForm />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/edit-profile" element={<EditProfilePage />} />

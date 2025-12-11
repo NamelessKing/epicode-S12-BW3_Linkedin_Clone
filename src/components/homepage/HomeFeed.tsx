@@ -49,11 +49,12 @@ const HomeFeed = () => {
 
       {currentFeed &&
         currentFeed.map((post) => (
-          <Card key={post._id}>
+          <Card key={post._id} className="shadow-sm">
             <Card.Body>
+              
               <Card.Title>{post.username}</Card.Title>
               <Card.Text>{post.text}</Card.Text>
-              <Card.Text>{post.createdAt}</Card.Text>
+              <Card.Text>{post.createdAt.slice(0,10)}</Card.Text>
             </Card.Body>
           </Card>
         ))}
