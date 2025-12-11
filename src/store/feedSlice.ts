@@ -23,6 +23,7 @@ export const fetchFeedArray = createAsyncThunk<Feed[]>("feed", async (): Promise
 
 export const newFeedfn = createAsyncThunk("feed/post", async (post: string): Promise<Feed> => {
   const response = await newFeedPost(post)
+  console.log("risposta andata", response)
   return response
 }
 )
@@ -51,7 +52,7 @@ const feedSlice = createSlice({
       })
       .addCase(newFeedfn.fulfilled, (state, action) => {
         state.loading = false
-        state.
+        state.currentFeed = action.payload
       })
       .addCase(newFeedfn.rejected, (state, action) => {
         state.loading = false
