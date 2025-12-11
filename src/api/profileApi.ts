@@ -25,7 +25,7 @@ import type {
  * @param body - Dati da inviare (opzionale)
  * @returns Promise con i dati JSON della risposta
  */
-const httpClient = async (
+export const httpClient = async (
   endpoint: string,
   method: string = "GET",
   body?: object
