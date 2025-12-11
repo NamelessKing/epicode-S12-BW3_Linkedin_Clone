@@ -1,23 +1,31 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import type { feedArray } from "../types/feedPost"
-import { fetchFeed } from "../api/feedApi"
+import type { Feed } from "../types/feedPost"
+import { fetchFeed, newFeedPost } from "../api/feedApi"
 
 interface FeedState {
-  data: feedArray[] | null
+  data: Feed[] | null
+  currentFeed: Feed | null
   loading: boolean
   error: string | null
 }
 
 const initialState: FeedState = {
   data: [],
+  currentFeed: null,
   loading: false,
   error: null,
 }
 
-export const fetchFeedArray = createAsyncThunk<feedArray[]>("feed", async (): Promise<feedArray[]> => {
+export const fetchFeedArray = createAsyncThunk<Feed[]>("feed", async (): Promise<Feed[]> => {
   const response = await fetchFeed()
-  return response
+  return response.reverse().slice(0, 29)
 })
+
+export const newFeedfn = createAsyncThunk("feed/post", async (post: string): Promise<Feed> => {
+  const response = await newFeedPost(post)
+  return response
+}
+)
 
 const feedSlice = createSlice({
   name: "feed",
@@ -35,7 +43,19 @@ const feedSlice = createSlice({
       })
       .addCase(fetchFeedArray.rejected, (state, action) => {
         state.loading = false
-        state.error = action.error.message || "Failed to update image"
+        state.error = action.error.message || "Failed to fetch posts"
+      })
+      .addCase(newFeedfn.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(newFeedfn.fulfilled, (state, action) => {
+        state.loading = false
+        state.
+      })
+      .addCase(newFeedfn.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.error.message || "Failed to create your post"
       })
   },
 })
