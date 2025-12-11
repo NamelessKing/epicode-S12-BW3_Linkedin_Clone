@@ -2,7 +2,7 @@ import { Card, Row, Col } from "react-bootstrap"
 import { BiChevronDown } from "react-icons/bi"
 import { BsEyeSlashFill, BsInfoSquareFill } from "react-icons/bs"
 import { CgChevronDown } from "react-icons/cg"
-import { TbSquareChevronDownFilled } from "react-icons/tb"
+import "./EditProfileSidebarRight.css"
 
 const EditProfileSidebarRight = () => {
   return (
@@ -65,13 +65,16 @@ const EditProfileSidebarRight = () => {
         <Col md={6}>
           <p
             style={{ cursor: "pointer" }}
-            className="text-secondary mb-2 text-end"
+            className="underline text-secondary mb-2 text-end underline"
           >
             Informazioni
           </p>
         </Col>
         <Col md={6}>
-          <p style={{ cursor: "pointer" }} className="text-secondary mb-0">
+          <p
+            style={{ cursor: "pointer" }}
+            className="underline text-secondary mb-0"
+          >
             Accessibilitá
           </p>
         </Col>
@@ -79,21 +82,21 @@ const EditProfileSidebarRight = () => {
 
       <p
         style={{ cursor: "pointer" }}
-        className="text-secondary mb-2 text-center"
+        className="underline text-secondary mb-2 text-center"
       >
         Centro assistenza
       </p>
 
       <p
         style={{ cursor: "pointer" }}
-        className="text-secondary mb-2 text-center"
+        className="underline text-secondary mb-2 text-center"
       >
         Privacy e condizioni <BiChevronDown />
       </p>
 
       <p
         style={{ cursor: "pointer" }}
-        className="text-secondary mb-2 text-center"
+        className="underline text-secondary mb-2 text-center"
       >
         Opzioni per gli annunci pubblicitari
       </p>
@@ -101,26 +104,32 @@ const EditProfileSidebarRight = () => {
         <Col md={4}>
           <p
             style={{ cursor: "pointer" }}
-            className="text-secondary text-end mb-2"
+            className="underline text-secondary text-end mb-2"
           >
             Pubblicitá
           </p>
         </Col>
         <Col md={8}>
-          <p style={{ cursor: "pointer" }} className="text-secondary mb-0">
+          <p
+            style={{ cursor: "pointer" }}
+            className="underline text-secondary mb-0"
+          >
             Servizi alle aziende <BiChevronDown />
           </p>
         </Col>
         <Col md={8}>
           <p
             style={{ cursor: "pointer" }}
-            className="text-secondary text-end mb-2"
+            className="underline text-secondary text-end mb-2"
           >
             Scarica l'app LinkedIn
           </p>
         </Col>
         <Col md={4}>
-          <p style={{ cursor: "pointer" }} className="text-secondary mb-0">
+          <p
+            style={{ cursor: "pointer" }}
+            className="underline text-secondary mb-0"
+          >
             Altro
           </p>
         </Col>
