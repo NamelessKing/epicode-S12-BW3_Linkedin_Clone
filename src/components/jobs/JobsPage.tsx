@@ -1,23 +1,25 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import JobsSidebar from './JobsSidebar';
 import JobsMainContent from './JobsMainContent';
+import "./JobsStyles.css";
 
 const JobsPage = () => {
   return (
-    <Container fluid>
-      <Row className='justify-content-center w-75 mx-auto'>
-        {/* LEFT SIDEBAR */}
+    <Container fluid className="jobs-page jobs-container">
+      <Row className='justify-content-center mx-auto'>
+        
         <Col xs={12} md={3}>
           <JobsSidebar />
         </Col>
 
-        {/* MAIN CONTENT - Lista lavori */}
         <Col xs={12} md={9}>
           <JobsMainContent />
         </Col>
+
       </Row>
     </Container>
   );
 };
 
 export default JobsPage;
+

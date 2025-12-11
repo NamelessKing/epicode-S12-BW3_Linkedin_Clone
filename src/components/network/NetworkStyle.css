@@ -1,0 +1,82 @@
+/* =======================================
+   NETWORK PAGE WRAPPER (solo questa pagina)
+========================================= */
+
+.network-page {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  background: linear-gradient(135deg, #f4f7fb 0%, #eef2f6 100%);
+}
+
+/* CENTRATURA CONTENUTI */
+.network-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* =======================================
+   SIDEBAR
+========================================= */
+
+.network-sidebar-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e1e1e1;
+  padding: 15px;
+  transition: 0.2s ease;
+}
+
+.network-sidebar-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.network-menu-item {
+  padding: 10px 5px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.network-menu-item:hover {
+  background: #f3f6f9;
+}
+
+/* =======================================
+   MAIN CONTENT
+========================================= */
+
+.network-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e1e1e1;
+}
+
+/* CARD USER */
+.network-user-card {
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.2s ease;
+  border: 1px solid #e5e5e5;
+}
+
+.network-user-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Avatar */
+.network-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .network-container {
+    padding: 0 15px;
+  }
+}
