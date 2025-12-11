@@ -35,7 +35,7 @@ export const fetchAllExp = createAsyncThunk(
 );
 
 export const fetchExp = createAsyncThunk(
-  'experience/fetchAll',
+  'experience/fetchSingle',
   async ({
     userId,
     experienceId
@@ -103,3 +103,14 @@ export const updateImgExp = createAsyncThunk(
     return response;
   }
 );
+
+const experienceSlice = createSlice({
+  name: 'experience',
+  experienceInitialState,
+  reducers: {
+    clearExp: (state) => {
+      state.data = null;
+      state.error = null;
+    }
+  }
+});
