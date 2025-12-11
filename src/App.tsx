@@ -1,6 +1,7 @@
 import ProfilePage from "./components/profile/ProfilePage";
 import Homepage from "./components/homepage/Homepage";
 import EditProfilePage from "./components/editprofile/EditProfilePage";
+import JobsPage from "./components/jobs/JobsPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import './App.css'
 import "./App.css";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/edit-profile" element={<EditProfilePage />} />
+        <Route path="/jobs" element={<JobsPage />} />
       </Routes>
     </>
   );
