@@ -1,0 +1,120 @@
+/* ===============================
+   SECTION: JOBS PAGE GLOBAL STYLE
+================================== */
+
+.jobs-container {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  max-width: 1200px;
+}
+
+/* ===============================
+   SIDEBAR STYLING
+================================== */
+
+.jobs-sidebar-card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.jobs-sidebar-card:hover {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.jobs-profile-placeholder {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #dce3ff, #b5c4ff);
+  margin: 0 auto;
+}
+
+.jobs-menu-item {
+  padding: 14px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.jobs-menu-item:hover {
+  background: #f3f6f9;
+}
+
+.jobs-menu-item:active {
+  background: #e8eef5;
+}
+
+/* ===============================
+   JOB MAIN CONTENT
+================================== */
+
+.jobs-card {
+  border-radius: 12px;
+  border: 1px solid #e6e6e6;
+  padding: 20px;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.jobs-card:hover {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.jobs-job-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #eeeeee;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.jobs-job-item:hover {
+  background: #f7f9fb;
+}
+
+.jobs-job-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #0a66c2;
+}
+
+.jobs-company {
+  font-size: 14px;
+  color: #656565;
+}
+
+.jobs-location {
+  font-size: 13px;
+  color: #8a8a8a;
+}
+
+.jobs-visit-btn {
+  border-radius: 50px;
+  font-size: 13px;
+  padding: 6px 16px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================== */
+
+@media (max-width: 768px) {
+  .jobs-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .jobs-job-title {
+    font-size: 15px;
+  }
+
+  .jobs-sidebar-card,
+  .jobs-card {
+    border-radius: 10px;
+  }
+
+  .jobs-menu-item {
+    font-size: 14px;
+  }
+}

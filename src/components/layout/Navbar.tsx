@@ -73,9 +73,18 @@ export default function TopNavbar() {
               <span>Rete</span>
             </Nav.Item>
 
-            <Nav.Item className="navlink-wrapper">
-              <FaSuitcase />
-              <span>Lavoro</span>
+            <Nav.Item
+              className={`navlink-wrapper ${
+                location.pathname === "/jobs" ? "active" : ""
+              }`}
+            >
+              <Link
+                to="/jobs"
+                className="text-decoration-none d-flex flex-column align-items-center"
+              >
+                <FaSuitcase />
+                <span>Lavoro</span>
+              </Link>
             </Nav.Item>
 
             <Nav.Item className="navlink-wrapper">
