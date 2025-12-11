@@ -19,7 +19,7 @@ export const BEARER_TOKENS = {
 
 let ACTIVE_TOKEN = ""
 
-export const changeActiveToken = (newToken) => {
+export const changeActiveToken = (newToken: string) => {
   return ACTIVE_TOKEN = newToken
 } 
 
