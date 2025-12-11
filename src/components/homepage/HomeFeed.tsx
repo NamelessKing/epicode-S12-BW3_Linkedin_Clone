@@ -1,6 +1,26 @@
 import { Card, Button, Form } from "react-bootstrap";
+import { fetchFeedArray } from "../../store/feedSlice";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { useEffect } from "react";
+import { PiStack } from "react-icons/pi";
 
 const HomeFeed = () => {
+  const currentFeed = useAppSelector((state) => state.feed.data)
+
+  const LoadFeed = () => {
+    const dispatch = useAppDispatch();
+    try {
+     dispatch(fetchFeedArray())
+    } catch (error: unknown) {
+      console.error("Errore durante il caricamento:", error)
+
+      const errorMessage =
+        error instanceof Error ? error.message : String(error)
+      alert("❌ Errore durante il caricamento: " + errorMessage)
+    }
+  }
+  
+ useEffect(() => {LoadFeed()}, [])
   return (
     <div className="d-flex flex-column gap-3">
       {/* BOX SHARE */}
@@ -22,6 +42,7 @@ const HomeFeed = () => {
         </Card.Body>
       </Card>
 
+
       {/* POST 1 – HELEN BRADLEY */}
       <Card className="shadow-sm">
         <Card.Body>
@@ -34,19 +55,14 @@ const HomeFeed = () => {
               className="rounded-circle me-3"
             />
             <div>
-              <div className="fw-semibold">Helen Bradley</div>
-              <small className="text-muted d-block">
-                Managing Director at Philosophy Science LLC
-              </small>
+              <div className="fw-semibold"></div>
+              <small className="text-muted d-block"></small>
               <small className="text-muted">3 hrs</small>
             </div>
           </div>
 
           <p className="mb-3" style={{ fontSize: "0.9rem" }}>
-            Go all in on infrastructure—digital and analog, e.g., mobile and
-            broadband infrastructure, roads, bridges, airports, etc. Tie every
-            initiative to the number of jobs that will be created (and provide
-            training where gaps are most ...
+           
           </p>
 
           <small className="text-muted d-block mb-2">
@@ -85,11 +101,7 @@ const HomeFeed = () => {
             </div>
           </div>
 
-          <Form.Control
-            size="sm"
-            type="text"
-            placeholder="Add a comment..."
-          />
+          <Form.Control size="sm" type="text" placeholder="Add a comment..." />
         </Card.Body>
       </Card>
 
@@ -130,7 +142,7 @@ const HomeFeed = () => {
         </Card.Body>
       </Card>
     </div>
-  );
+  )
 };
 
 export default HomeFeed;
