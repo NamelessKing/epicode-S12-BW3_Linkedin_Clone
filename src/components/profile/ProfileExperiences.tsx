@@ -118,27 +118,27 @@ const ProfileExperiences = function () {
             <Form.Group className="mb-3 d-flex flex-row flex-wrap justify-content-around ">
               <Col className="mb-2" xs={12} md={5}>
                 <Form.Label>Ruolo</Form.Label>
-                <Form.Control type="textarea" name="role" />
+                <Form.Control type="textarea" name="role" required/>
               </Col>
               <Col className="mb-2" xs={12} md={5}>
                 <Form.Label>Compagnia</Form.Label>
-                <Form.Control type="textarea" name="company" />
+                <Form.Control type="textarea" name="company" required/>
               </Col>
               <Col className="mb-2" xs={12} md={5}>
                 <Form.Label>Data di inizio</Form.Label>
-                <Form.Control type="textarea" name="startDate" />
+                <Form.Control type="textarea" name="startDate" required/>
               </Col>
               <Col className="mb-2" xs={12} md={5}>
                 <Form.Label>Data di fine</Form.Label>
-                <Form.Control type="textarea" name="endDate" />
+                <Form.Control type="textarea" name="endDate" required/>
               </Col>
               <Col className="mb-2" xs={12} md={5}>
                 <Form.Label>Luogo</Form.Label>
-                <Form.Control type="textarea" name="area" />
+                <Form.Control type="textarea" name="area" required/>
               </Col>
               <Col className="mb-2" xs={12} md={5}>
                 <Form.Label>Descrizione</Form.Label>
-                <Form.Control type="textarea" name="description" />
+                <Form.Control type="textarea" name="description" required/>
               </Col>
               <Col xs={12} className="text-center">
                 <Button
