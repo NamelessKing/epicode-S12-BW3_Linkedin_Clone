@@ -27,6 +27,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import userReducer from "./userSlice";
+import feedSlice from "./feedSlice";
 
 /**
  * Configurazione dello store Redux
@@ -39,7 +40,7 @@ export const store = configureStore({
   reducer: {
     user: userReducer,
     // Aggiungi qui altri reducers per D2-D4:
-    // posts: postsReducer,
+    feed: feedSlice
     // experiences: experiencesReducer,
   },
 });

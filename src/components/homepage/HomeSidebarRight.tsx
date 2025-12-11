@@ -3,12 +3,11 @@ import { Card, Button } from "react-bootstrap";
 const HomeSidebarRight = () => {
   return (
     <div className="d-flex flex-column gap-3">
-      {/* WHAT YOU NEED TO KNOW NOW */}
       <Card className="shadow-sm">
         <Card.Body>
           <div className="d-flex justify-content-between align-items-center mb-2">
             <h6 className="mb-0" style={{ fontSize: "0.95rem" }}>
-              What you need to know now
+              Storie principali
             </h6>
             <span className="text-muted" style={{ cursor: "pointer" }}>
               i
@@ -17,34 +16,29 @@ const HomeSidebarRight = () => {
 
           <ul className="list-unstyled mb-0" style={{ fontSize: "0.85rem" }}>
             <li className="mb-2">
-              <strong>The Dow is About to Hit 20,000</strong>
+              <strong>La Bei finanzia Scalapay</strong>
               <br />
-              <small className="text-muted">Top News</small>
+              <small className="text-muted">17 ore fa - 2380 lettori</small>
             </li>
             <li className="mb-2">
-              <strong>What Today&apos;s Job Numbers Mean for You</strong>
+              <strong>L'Australia vieta i social ai minori di 16 anni</strong>
               <br />
-              <small className="text-muted">36 new posts</small>
+              <small className="text-muted">18 ore fa - 183 lettori</small>
             </li>
             <li className="mb-2">
-              <strong>
-                How Healthcare Repeal Could Affect Your Workday – and Your
-                Retirement
-              </strong>
+              <strong>Mediaset acquista Radio Norba</strong>
               <br />
-              <small className="text-muted">Updated 10 mins ago</small>
+              <small className="text-muted">1 giorno fa</small>
             </li>
             <li className="mb-2">
-              <strong>Economy Grew at Fastest Pace in Two Years</strong>
+              <strong>Com'è andato alla fine il Black Friday</strong>
               <br />
-              <small className="text-muted">Trending · 2M talking about this</small>
+              <small className="text-muted">1 giorno fa</small>
             </li>
             <li>
-              <strong>#ChaseGreat</strong>
+              <strong> Quanti giovani lasciano l'Italia</strong>
               <br />
-              <small className="text-muted">
-                Trending · 1.8M talking about this
-              </small>
+              <small className="text-muted">1 giorno fa - 1214 lettori</small>
             </li>
           </ul>
         </Card.Body>
@@ -63,7 +57,7 @@ const HomeSidebarRight = () => {
               LET&apos;S CREATE DEEPER CUSTOMER RELATIONSHIPS.
             </div>
             <Button variant="primary" size="sm">
-              Find out more
+              Scopri di più
             </Button>
           </div>
         </Card.Body>
@@ -74,9 +68,9 @@ const HomeSidebarRight = () => {
         <Card.Body>
           <div className="d-flex justify-content-between align-items-center mb-2">
             <div className="fw-semibold" style={{ fontSize: "0.9rem" }}>
-              Follow new perspectives
+              Scopri nuove prospettive
             </div>
-            <small className="text-muted">See more</small>
+            <small className="text-muted"></small>
           </div>
 
           {/* Utente 1 */}
@@ -93,15 +87,15 @@ const HomeSidebarRight = () => {
                 Decagon
               </div>
               <small className="text-muted" style={{ fontSize: "0.8rem" }}>
-                Popular in the internet industry
+                Popolare nell'industria web
               </small>
             </div>
             <Button
               variant="outline-secondary"
               size="sm"
-              className="rounded-circle px-2"
+              className="rounded-circle px-1 py-0 m-0"
             >
-              +
+            +
             </Button>
           </div>
 
@@ -119,13 +113,13 @@ const HomeSidebarRight = () => {
                 Ryan Holmes
               </div>
               <small className="text-muted" style={{ fontSize: "0.8rem" }}>
-                CEO at Amethyst
+                CEO presso Amethyst
               </small>
             </div>
             <Button
               variant="outline-secondary"
               size="sm"
-              className="rounded-circle px-2"
+              className="rounded-circle px-1 py-0 m-0"
             >
               +
             </Button>
@@ -145,13 +139,13 @@ const HomeSidebarRight = () => {
                 Arianna Huffington
               </div>
               <small className="text-muted" style={{ fontSize: "0.8rem" }}>
-                President and Editor-in-Chief at The Huffington...
+                Presidente e Editor-in-Chief al The Huffington...
               </small>
             </div>
             <Button
               variant="outline-secondary"
               size="sm"
-              className="rounded-circle px-2"
+              className="rounded-circle px-1 py-0 m-0"
             >
               +
             </Button>
@@ -159,7 +153,7 @@ const HomeSidebarRight = () => {
         </Card.Body>
       </Card>
     </div>
-  );
+  )
 };
 
 export default HomeSidebarRight;
