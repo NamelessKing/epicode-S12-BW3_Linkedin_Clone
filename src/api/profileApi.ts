@@ -6,7 +6,8 @@
  * Autenticazione: Bearer Token (configurato in config/constants.ts)
  */
 
-import { API_BASE_URL, ACTIVE_TOKEN } from "../config/constants";
+import { API_BASE_URL } from "../config/constants";
+import { getActiveToken } from "../config/auth";
 import type {
   UpdateProfileImage,
   UpdatedUserProfile,
@@ -31,11 +32,16 @@ export const httpClient = async (
   body?: object
 ) => {
   const url = `${API_BASE_URL}${endpoint}`;
+  const token = getActiveToken();
+
+  if (!token) {
+    throw new Error("No active token found. Please login.");
+  }
 
   const response = await fetch(url, {
     method,
     headers: {
-      Authorization: `Bearer ${ACTIVE_TOKEN}`,
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
     body: body ? JSON.stringify(body) : undefined,
@@ -150,13 +156,19 @@ export const updateUserProfile = async (
 export const updateUserImage = async (
   profileImage: UpdateProfileImage
 ): Promise<UserProfile> => {
+  const token = getActiveToken();
+
+  if (!token) {
+    throw new Error("No active token found. Please login.");
+  }
+
   const formData = new FormData();
   formData.append("profile", profileImage.image!);
 
   const url = `${API_BASE_URL}/profile/${profileImage.userId!}/picture`;
   const response = await fetch(url, {
     method: "POST",
-    headers: { Authorization: `Bearer ${ACTIVE_TOKEN}` },
+    headers: { Authorization: `Bearer ${token}` },
     body: formData,
   });
   if (!response.ok) {

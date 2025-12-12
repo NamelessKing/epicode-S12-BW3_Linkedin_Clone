@@ -16,4 +16,4 @@ export const BEARER_TOKENS = {
 };
 
 // Token attivo (cambiare in base a chi sta lavorando)
-export const ACTIVE_TOKEN = BEARER_TOKENS.rossella;
+export const ACTIVE_TOKEN = BEARER_TOKENS.tanjin;

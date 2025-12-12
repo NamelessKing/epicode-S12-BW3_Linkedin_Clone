@@ -6,7 +6,7 @@ import {
   Nav,
   Dropdown,
 } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   FaHome,
   FaUserFriends,
@@ -16,7 +16,9 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import { useState } from "react";
-import { useAppSelector } from "../../store";
+import { useAppSelector, useAppDispatch } from "../../store";
+import { clearUser } from "../../store/userSlice";
+import { clearActiveUser } from "../../config/auth";
 
 import "./Navbar.css";
 import LinkedinLogo from "../../assets/linkedin-svgrepo-com.svg";
@@ -27,7 +29,15 @@ const mockUser = {
 
 export default function TopNavbar() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const [showUserMenu, setShowUserMenu] = useState(false);
+
+  const handleLogout = () => {
+    dispatch(clearUser());
+    clearActiveUser();
+    navigate("/login");
+  };
   const user = useAppSelector((state) => state.user.data);
 
   return (
@@ -187,7 +197,7 @@ export default function TopNavbar() {
                 <Dropdown.Item href="#">
                   Account per la pubblicazione d...
                 </Dropdown.Item>
-                <Dropdown.Item href="#">Esci</Dropdown.Item>
+                <Dropdown.Item onClick={handleLogout}>Esci</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
 
