@@ -137,7 +137,11 @@ export default function TopNavbar() {
                 }`}
                 id="user-dropdown"
               >
-                <img src={mockUser.image} alt="me" className="profile-avatar" />
+                <img
+                  src={user?.image || mockUser.image}
+                  alt="me"
+                  className="profile-avatar"
+                />
                 <span>Tu</span>
               </Dropdown.Toggle>
 
