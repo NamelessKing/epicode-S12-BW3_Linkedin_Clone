@@ -9,14 +9,14 @@ const JobsSidebar = () => {
     <div>
       <Card className="jobs-sidebar-card mb-3 shadow-sm">
         <div
-          className="d-flex justify-content-center"
+          className="d-flex justify-content-center mt-2"
           style={{ marginTop: '-36px' }}
         >
           <img
             src={currentUser?.image}
             alt="immagine del profilo"
-            width={72}
-            height={72}
+            width={120}
+            height={120}
             className="rounded-circle border border-2 border-white"
           />
         </div>
