@@ -24,17 +24,17 @@
  * ```
  */
 
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import type {
   UserProfile,
   UpdatedUserProfile,
   UpdateProfileImage,
-} from "../types/user";
+} from "../types/user"
 import {
   fetchCurrentUserProfile,
   updateUserImage,
   updateUserProfile,
-} from "../api/profileApi";
+} from "../api/profileApi"
 
 /**
  * Interfaccia dello stato utente
@@ -43,9 +43,10 @@ import {
  * - error: messaggio di errore se la chiamata fallisce
  */
 interface UserState {
-  data: UserProfile | null;
-  loading: boolean;
-  error: string | null;
+  data: UserProfile | null
+  loading: boolean
+  error: string | null
+  token: string | null
 }
 
 /**
@@ -56,7 +57,8 @@ const initialState: UserState = {
   data: null,
   loading: false,
   error: null,
-};
+  token: null,
+}
 
 /**
  * Thunk asincrono per recuperare il profilo utente corrente
@@ -74,10 +76,10 @@ const initialState: UserState = {
 export const fetchCurrentUser = createAsyncThunk(
   "user/fetchCurrentUser",
   async () => {
-    const response = await fetchCurrentUserProfile();
-    return response;
+    const response = await fetchCurrentUserProfile()
+    return response
   }
-);
+)
 
 /**
  * Thunk per aggiornare il profilo utente corrente
@@ -85,18 +87,18 @@ export const fetchCurrentUser = createAsyncThunk(
 export const updateCurrentUser = createAsyncThunk(
   "user/updateCurrentUser",
   async (profileData: UpdatedUserProfile) => {
-    const response = await updateUserProfile(profileData);
-    return response;
+    const response = await updateUserProfile(profileData)
+    return response
   }
-);
+)
 
 export const updateProfileImage = createAsyncThunk(
   "user/updateUserImage",
   async (imageToUpdate: UpdateProfileImage): Promise<UserProfile> => {
-    const response = await updateUserImage(imageToUpdate);
-    return response;
+    const response = await updateUserImage(imageToUpdate)
+    return response
   }
-);
+)
 
 /**
  * User Slice - gestisce lo stato globale dell'utente
@@ -115,57 +117,60 @@ const userSlice = createSlice({
      * ```
      */
     clearUser: (state) => {
-      state.data = null;
-      state.error = null;
+      state.data = null
+      state.error = null
+    },
+    loginUser: (state, action) => {
+      state.token = action.payload
     },
   },
   extraReducers: (builder) => {
     builder
       // Chiamata in corso
       .addCase(fetchCurrentUser.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+        state.loading = true
+        state.error = null
       })
       // Chiamata completata con successo
       .addCase(fetchCurrentUser.fulfilled, (state, action) => {
-        state.loading = false;
-        state.data = action.payload;
+        state.loading = false
+        state.data = action.payload
       })
       // Chiamata fallita
       .addCase(fetchCurrentUser.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || "Failed to fetch user";
+        state.loading = false
+        state.error = action.error.message || "Failed to fetch user"
       })
       // UPDATE USER
       .addCase(updateCurrentUser.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+        state.loading = true
+        state.error = null
       })
       .addCase(updateCurrentUser.fulfilled, (state, action) => {
-        state.loading = false;
-        state.data = action.payload;
+        state.loading = false
+        state.data = action.payload
       })
       .addCase(updateCurrentUser.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || "Failed to update user";
+        state.loading = false
+        state.error = action.error.message || "Failed to update user"
       })
       .addCase(updateProfileImage.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+        state.loading = true
+        state.error = null
       })
       .addCase(updateProfileImage.fulfilled, (state, action) => {
-        state.loading = false;
-        state.data = action.payload;
+        state.loading = false
+        state.data = action.payload
       })
       .addCase(updateProfileImage.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || "Failed to update image";
-      });
+        state.loading = false
+        state.error = action.error.message || "Failed to update image"
+      })
   },
-});
+})
 
 // Esporta le azioni
-export const { clearUser } = userSlice.actions;
+export const { clearUser, loginUser } = userSlice.actions
 
 // Esporta il reducer
-export default userSlice.reducer;
+export default userSlice.reducer

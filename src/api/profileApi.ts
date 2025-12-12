@@ -6,7 +6,8 @@
  * Autenticazione: Bearer Token (configurato in config/constants.ts)
  */
 
-import { API_BASE_URL, ACTIVE_TOKEN } from "../config/constants";
+import { API_BASE_URL } from "../config/constants";
+
 import type {
   UpdateProfileImage,
   UpdatedUserProfile,
@@ -25,17 +26,22 @@ import type {
  * @param body - Dati da inviare (opzionale)
  * @returns Promise con i dati JSON della risposta
  */
+
 export const httpClient = async (
+  
   endpoint: string,
   method: string = "GET",
-  body?: object
+  body?: object,
+  key?: string | null
+
 ) => {
   const url = `${API_BASE_URL}${endpoint}`;
 
+ 
   const response = await fetch(url, {
     method,
     headers: {
-      Authorization: `Bearer ${ACTIVE_TOKEN}`,
+      Authorization: `Bearer ${key}`,
       "Content-Type": "application/json",
     },
     body: body ? JSON.stringify(body) : undefined,
@@ -127,7 +133,7 @@ export const fetchUserProfile = async (
 export const updateUserProfile = async (
   profileData: UpdatedUserProfile
 ): Promise<UserProfile> => {
-  return httpClient("/profile/", "PUT", profileData);
+  return httpClient("/profile/", "PUT", profileData, profileData.key);
 };
 
 /**

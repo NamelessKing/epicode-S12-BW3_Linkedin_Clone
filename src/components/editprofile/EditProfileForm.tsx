@@ -18,7 +18,7 @@ const EditProfileForm = () => {
 
   // Legge lo stato di loading per mostrare lo spinner durante il salvataggio
   const loading = useAppSelector((state) => state.user.loading);
-
+const key = useAppSelector((state) => state.user.token)
   // State locale del form - contiene i dati che l'utente sta modificando
   // Inizia vuoto, poi viene popolato da useEffect quando currentUser arriva da Redux
   const [state, setState] = useState<UpdatedUserProfile>({
@@ -29,7 +29,8 @@ const EditProfileForm = () => {
     username: "",
     title: "",
     area: "",
-    image: "", // URL dell'immagine dal server
+    image: "",
+    key: key// URL dell'immagine dal server
   });
 
   // ⭐ State per il file da caricare (solo File object, nessuna preview)
@@ -51,10 +52,11 @@ const EditProfileForm = () => {
         username: currentUser.username ?? "",
         title: currentUser.title ?? "",
         area: currentUser.area ?? "",
-        image: currentUser.image ?? "", // Sincronizza URL immagine corrente
+        image: currentUser.image ?? "",
+        key: key// Sincronizza URL immagine corrente
       });
     }
-  }, [currentUser]); // Si ri-esegue solo se currentUser cambia
+  }, [currentUser, key]); // Si ri-esegue solo se currentUser cambia
 
   // ⭐ Gestisce la selezione del file immagine
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {

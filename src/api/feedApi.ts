@@ -1,10 +1,12 @@
-import { API_BASE_URL, ACTIVE_TOKEN } from "../config/constants"
+import { API_BASE_URL} from "../config/constants"
 import type { Feed } from "../types/feedPost"
+
+
 
 export const fetchFeed = async (): Promise<Feed[]> => {
   const response = await fetch(API_BASE_URL + "/posts/", {
     headers: {
-      Authorization: `Bearer ${ACTIVE_TOKEN}`,
+      Authorization: `Bearer ${key}`,
     },
   })
 

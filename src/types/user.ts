@@ -23,6 +23,7 @@ export interface UpdatedUserProfile {
   title?: string;
   area?: string;
   image?: string;
+  key?: string | null
 }
 
 export interface UpdateProfileImage {

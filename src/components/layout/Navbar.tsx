@@ -133,6 +133,12 @@ export default function TopNavbar() {
                 >
                   Modifica profilo
                 </Dropdown.Item>
+                <Dropdown.Item
+                  href="/login"
+                  className="dropdown-button-secondary"
+                >
+                  Logout
+                </Dropdown.Item>
                 <Dropdown.Divider />
                 <div className="dropdown-section-title">Account</div>
                 <Dropdown.Item href="#">

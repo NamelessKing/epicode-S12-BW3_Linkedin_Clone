@@ -17,10 +17,4 @@ export const BEARER_TOKENS = {
 
 // Token attivo (cambiare in base a chi sta lavorando)
 
-let ACTIVE_TOKEN = ""
-
-export const changeActiveToken = (newToken: string) => {
-  return ACTIVE_TOKEN = newToken
-} 
-
-export { ACTIVE_TOKEN }
+// export const ACTIVE_TOKEN = BEARER_TOKENS.andrea
