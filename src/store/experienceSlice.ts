@@ -73,12 +73,10 @@ export const updateExp = createAsyncThunk(
     experienceId: string;
     experienceData: UpdateExperience;
   }) => {
-    const response = await updateExperience(
-      userId,
-      experienceId,
-      experienceData
-    );
-    return response;
+    await updateExperience(userId, experienceId, experienceData);
+    // Ri-fetcha l'esperienza aggiornata per avere i dati freschi
+    const updatedExperience = await fetchExperience(userId, experienceId);
+    return updatedExperience;
   }
 );
 
