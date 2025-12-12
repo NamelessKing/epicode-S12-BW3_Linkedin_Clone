@@ -15,7 +15,7 @@ const ProfileHeaderCard = () => {
         {/* Header Background Image */}
         <div className="position-relative">
           <Card.Img
-            src="https://placecats.com/800/200"
+            src="https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&w=800"
             className="headerImg"
             style={{ height: "200px", objectFit: "cover" }}
           />
@@ -108,7 +108,7 @@ const ProfileHeaderCard = () => {
         </Card.Body>
       </Card>
     </Container>
-  );
+  )
 };
 
 export default ProfileHeaderCard;
