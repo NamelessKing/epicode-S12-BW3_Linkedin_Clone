@@ -1,1 +1,310 @@
+/* SCOPE: vale solo dentro Homepage */
+.linkedin-homepage-scope {
+  background: #f3f2ef;
+  min-height: 100vh;
+}
 
+/* pagina stile LinkedIn (max width centrale) */
+.linkedin-homepage-scope .li-page {
+  padding-top: 24px;
+  padding-bottom: 40px;
+}
+
+.linkedin-homepage-scope .li-row {
+  max-width: 1128px;
+  margin: 0 auto;
+  padding: 0 12px;
+  gap: 0;
+}
+
+/* colonne */
+.linkedin-homepage-scope .li-col {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* cards generiche */
+.linkedin-homepage-scope .card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+
+/* ===== LEFT SIDEBAR ===== */
+.linkedin-homepage-scope .li-profile-banner {
+  height: 56px;
+  background-size: cover;
+  background-position: center;
+}
+
+.linkedin-homepage-scope .li-avatar-overlap {
+  margin-top: -30px;
+}
+
+.linkedin-homepage-scope .li-mini-link {
+  font-size: 0.82rem;
+  color: #0a66c2;
+  cursor: pointer;
+}
+
+.linkedin-homepage-scope .li-left-list .list-group-item {
+  border: 0;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+}
+
+.linkedin-homepage-scope .li-left-list .li-left-icon {
+  width: 18px;
+  display: inline-flex;
+  justify-content: center;
+  margin-right: 8px;
+  opacity: 0.8;
+}
+
+/* ===== CENTER FEED ===== */
+.linkedin-homepage-scope .li-create-post-card {
+  border-radius: 12px;
+}
+
+.linkedin-homepage-scope .li-create-top {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.linkedin-homepage-scope .li-create-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.linkedin-homepage-scope .li-create-input {
+  flex: 1;
+}
+
+.linkedin-homepage-scope .li-create-input input {
+  border-radius: 999px !important;
+  padding: 12px 16px;
+  background: #ffffff;
+}
+
+.linkedin-homepage-scope .li-create-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.linkedin-homepage-scope .li-action-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.linkedin-homepage-scope .li-action-pill:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* riga “Seleziona visualizzazione feed” */
+.linkedin-homepage-scope .li-feed-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 8px 0 6px;
+}
+
+.linkedin-homepage-scope .li-feed-sort .line {
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.linkedin-homepage-scope .li-post-card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.linkedin-homepage-scope .li-post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.linkedin-homepage-scope .li-post-user {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.linkedin-homepage-scope .li-post-user img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.linkedin-homepage-scope .li-post-meta {
+  line-height: 1.15;
+}
+
+.linkedin-homepage-scope .li-post-meta .name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.linkedin-homepage-scope .li-post-meta .sub {
+  font-size: 0.82rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.linkedin-homepage-scope .li-post-menu {
+  display: flex;
+  gap: 8px;
+  color: rgba(0, 0, 0, 0.6);
+  user-select: none;
+}
+
+.linkedin-homepage-scope .li-post-text {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.linkedin-homepage-scope .li-post-media {
+  margin-top: 10px;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.linkedin-homepage-scope .li-post-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.linkedin-homepage-scope .li-footer-btn {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  padding: 10px 8px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.linkedin-homepage-scope .li-footer-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* ===== RIGHT SIDEBAR ===== */
+.linkedin-homepage-scope .li-right-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linkedin-homepage-scope .li-news-list li {
+  padding: 8px 0;
+}
+
+.linkedin-homepage-scope .li-news-list strong {
+  font-size: 0.92rem;
+}
+
+.linkedin-homepage-scope .li-news-list small {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* footer links right */
+.linkedin-homepage-scope .li-mini-footer span {
+  cursor: pointer;
+}
+
+.linkedin-homepage-scope .li-mini-footer span:hover {
+  text-decoration: underline;
+}
+
+/* responsive */
+@media (max-width: 767px) {
+  .linkedin-homepage-scope .li-row {
+    padding: 0 6px;
+  }
+  .linkedin-homepage-scope .li-post-media {
+    height: 220px;
+  }
+}
+
+/* ========================= */
+/* ===== RESPONSIVE ======== */
+/* ========================= */
+
+/* MOBILE */
+@media (max-width: 767px) {
+  .linkedin-homepage-scope .li-left,
+  .linkedin-homepage-scope .li-right {
+    display: none;
+  }
+
+  .linkedin-homepage-scope .li-center {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .linkedin-homepage-scope .li-post-media {
+    height: 220px;
+  }
+
+  .linkedin-homepage-scope .li-create-actions {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .linkedin-homepage-scope .li-action-pill {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+}
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 991px) {
+  .linkedin-homepage-scope .li-left,
+  .linkedin-homepage-scope .li-right {
+    display: none;
+  }
+
+  .linkedin-homepage-scope .li-row {
+    max-width: 720px;
+  }
+
+  .linkedin-homepage-scope .li-post-media {
+    height: 280px;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 992px) {
+  .linkedin-homepage-scope .li-left,
+  .linkedin-homepage-scope .li-right {
+    display: block;
+  }
+
+  .linkedin-homepage-scope .li-row {
+    max-width: 1128px;
+  }
+}

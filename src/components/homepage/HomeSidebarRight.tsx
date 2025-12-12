@@ -1,60 +1,102 @@
-import { Card, Button } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap"
 
 const HomeSidebarRight = () => {
   return (
     <div className="d-flex flex-column gap-3">
+      {/* LINKEDIN NOTIZIE */}
       <Card className="shadow-sm">
         <Card.Body>
-          <div className="d-flex justify-content-between align-items-center mb-2">
-            <h6 className="mb-0" style={{ fontSize: "0.95rem" }}>
-              Storie principali
-            </h6>
+          <div className="li-right-title mb-2">
+            <strong style={{ fontSize: "1rem" }}>LinkedIn Notizie</strong>
             <span className="text-muted" style={{ cursor: "pointer" }}>
               i
             </span>
           </div>
 
-          <ul className="list-unstyled mb-0" style={{ fontSize: "0.85rem" }}>
-            <li className="mb-2">
-              <strong>La Bei finanzia Scalapay</strong>
+          <div className="text-muted" style={{ fontSize: "0.9rem" }}>
+            Storie principali
+          </div>
+
+          <ul className="list-unstyled mb-2 li-news-list">
+            <li>
+              <strong>La cucina italiana è patrimonio UNESCO?</strong>
               <br />
-              <small className="text-muted">17 ore fa - 2380 lettori</small>
-            </li>
-            <li className="mb-2">
-              <strong>L'Australia vieta i social ai minori di 16 anni</strong>
-              <br />
-              <small className="text-muted">18 ore fa - 183 lettori</small>
-            </li>
-            <li className="mb-2">
-              <strong>Mediaset acquista Radio Norba</strong>
-              <br />
-              <small className="text-muted">1 giorno fa</small>
-            </li>
-            <li className="mb-2">
-              <strong>Com'è andato alla fine il Black Friday</strong>
-              <br />
-              <small className="text-muted">1 giorno fa</small>
+              <small>19 ore fa · 7.894 lettori</small>
             </li>
             <li>
-              <strong> Quanti giovani lasciano l'Italia</strong>
+              <strong>Ospedali che competono</strong>
               <br />
-              <small className="text-muted">1 giorno fa - 1214 lettori</small>
+              <small>17 ore fa · 227 lettori</small>
+            </li>
+            <li>
+              <strong>Fintech italiano verso il consolidamento</strong>
+              <br />
+              <small>16 ore fa · 208 lettori</small>
+            </li>
+            <li>
+              <strong>Case dormienti una ricchezza sottovalutata</strong>
+              <br />
+              <small>22 ore fa · 119 lettori</small>
+            </li>
+            <li>
+              <strong>Fs aggiorna il piano strategico</strong>
+              <br />
+              <small>2 ore fa</small>
             </li>
           </ul>
+
+          <div style={{ cursor: "pointer", fontWeight: 600, color: "rgba(0,0,0,0.65)" }}>
+            Mostra altro ▾
+          </div>
         </Card.Body>
       </Card>
 
-      {/* ADVERTISING / FIXDEX BANNER */}
+      {/* ROMPICAPO */}
+      <Card className="shadow-sm">
+        <Card.Body>
+          <div className="text-muted" style={{ fontSize: "0.9rem" }}>
+            Il rompicapo di oggi
+          </div>
+          <div className="mt-1" style={{ fontWeight: 700 }}>
+            Zip - un rompicapo veloce
+          </div>
+          <div className="text-muted" style={{ fontSize: "0.9rem" }}>
+            Risolvilo in 60 secondi o meno!
+          </div>
+
+          <div className="mt-3 d-flex align-items-center gap-2">
+            <div
+              style={{
+                width: 42,
+                height: 42,
+                borderRadius: 8,
+                background: "#f7c6d9",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: 900,
+              }}
+            >
+              ⌁
+            </div>
+            <div className="text-muted" style={{ fontSize: "0.9rem" }}>
+              Solo tu puoi vedere il punteggio
+            </div>
+          </div>
+        </Card.Body>
+      </Card>
+
+      {/* AD CARD */}
       <Card className="shadow-sm">
         <Card.Body className="p-0">
           <img
             src="https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=1200"
-            alt="FixDex Ad"
+            alt="Ad"
             className="img-fluid"
           />
           <div className="p-3">
             <div className="fw-semibold mb-1" style={{ fontSize: "0.9rem" }}>
-              LET&apos;S CREATE DEEPER CUSTOMER RELATIONSHIPS.
+              Riattiva Premium con il 50% di sconto
             </div>
             <Button variant="primary" size="sm">
               Scopri di più
@@ -63,98 +105,8 @@ const HomeSidebarRight = () => {
         </Card.Body>
       </Card>
 
-      {/* FOLLOW NEW PERSPECTIVES */}
-      <Card className="shadow-sm">
-        <Card.Body>
-          <div className="d-flex justify-content-between align-items-center mb-2">
-            <div className="fw-semibold" style={{ fontSize: "0.9rem" }}>
-              Scopri nuove prospettive
-            </div>
-            <small className="text-muted"></small>
-          </div>
-
-          {/* Utente 1 */}
-          <div className="d-flex align-items-center mb-3">
-            <img
-              src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=100"
-              alt="Decagon"
-              width={40}
-              height={40}
-              className="rounded-circle me-2"
-            />
-            <div className="flex-grow-1">
-              <div className="fw-semibold" style={{ fontSize: "0.85rem" }}>
-                Decagon
-              </div>
-              <small className="text-muted" style={{ fontSize: "0.8rem" }}>
-                Popolare nell'industria web
-              </small>
-            </div>
-            <Button
-              variant="outline-secondary"
-              size="sm"
-              className="rounded-circle px-1 py-0 m-0"
-            >
-            +
-            </Button>
-          </div>
-
-          {/* Utente 2 */}
-          <div className="d-flex align-items-center mb-3">
-            <img
-              src="https://images.pexels.com/photos/712521/pexels-photo-712521.jpeg?auto=compress&cs=tinysrgb&w=100"
-              alt="Ryan Holmes"
-              width={40}
-              height={40}
-              className="rounded-circle me-2"
-            />
-            <div className="flex-grow-1">
-              <div className="fw-semibold" style={{ fontSize: "0.85rem" }}>
-                Ryan Holmes
-              </div>
-              <small className="text-muted" style={{ fontSize: "0.8rem" }}>
-                CEO presso Amethyst
-              </small>
-            </div>
-            <Button
-              variant="outline-secondary"
-              size="sm"
-              className="rounded-circle px-1 py-0 m-0"
-            >
-              +
-            </Button>
-          </div>
-
-          {/* Utente 3 */}
-          <div className="d-flex align-items-center">
-            <img
-              src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=100"
-              alt="Arianna Huffington"
-              width={40}
-              height={40}
-              className="rounded-circle me-2"
-            />
-            <div className="flex-grow-1">
-              <div className="fw-semibold" style={{ fontSize: "0.85rem" }}>
-                Arianna Huffington
-              </div>
-              <small className="text-muted" style={{ fontSize: "0.8rem" }}>
-                Presidente e Editor-in-Chief al The Huffington...
-              </small>
-            </div>
-            <Button
-              variant="outline-secondary"
-              size="sm"
-              className="rounded-circle px-1 py-0 m-0"
-            >
-              +
-            </Button>
-          </div>
-        </Card.Body>
-      </Card>
-
-      {/* Footer stile LinkedIn */}
-      <div className="text-center px-2">
+      {/* FOOTER stile LinkedIn */}
+      <div className="text-center px-2 li-mini-footer">
         <div className="d-flex flex-wrap justify-content-center gap-2 small text-muted">
           <span>Informazioni</span>
           <span>Accessibilità</span>
@@ -174,14 +126,12 @@ const HomeSidebarRight = () => {
             width={18}
             height={18}
           />
-          <small className="text-muted">
-            LinkedIn Corporation © 2025
-          </small>
+          <small className="text-muted">LinkedIn Corporation © 2025</small>
         </div>
       </div>
     </div>
   )
-};
+}
 
-export default HomeSidebarRight;
+export default HomeSidebarRight
 

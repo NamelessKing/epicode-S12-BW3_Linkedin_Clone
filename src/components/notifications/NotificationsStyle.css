@@ -1,16 +1,21 @@
 /* =======================================
    NOTIFICATIONS PAGE WRAPPER
+   (stile LinkedIn)
 ========================================= */
 
 .notifications-page {
+  width: 100%;
   min-height: 100vh;
-  padding-top: 40px;
-  background: linear-gradient(135deg, #f4f7fb 0%, #eef2f6 100%);
+  background: #f3f2ef;      /* ✅ sfondo LinkedIn full-width */
+  padding-top: 24px;
+  padding-bottom: 40px;
 }
 
 .notifications-container {
-  max-width: 800px;        /* PIÙ STRETTA E CENTRALE */
+  max-width: 800px;         /* notifiche più strette */
   margin: 0 auto;
+  padding: 0 12px;
+  background: transparent; /* ❗ mai lo sfondo qui */
 }
 
 /* =======================================
@@ -20,6 +25,7 @@
 .notifications-main {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
 /* =======================================
@@ -27,17 +33,19 @@
 ========================================= */
 
 .notifications-search-input {
-  height: 45px;
-  border-radius: 8px;
-  border: 1px solid #d1d1d1;
+  height: 44px;
+  border-radius: 999px;     /* LinkedIn style */
+  border: 1px solid rgba(0, 0, 0, 0.15);
   background: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-  transition: border 0.2s;
+  padding: 0 16px;
+  font-size: 0.9rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .notifications-search-input:focus {
   border-color: #0a66c2;
-  box-shadow: 0 0 4px rgba(10, 102, 194, 0.4);
+  box-shadow: 0 0 0 2px rgba(10, 102, 194, 0.15);
+  outline: none;
 }
 
 /* =======================================
@@ -45,28 +53,53 @@
 ========================================= */
 
 .notification-card {
-  border-radius: 12px;
+  border-radius: 10px;
   background: #ffffff;
-  border: 1px solid #e5e5e5;
-  padding: 12px;
-  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 12px 14px;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
   cursor: pointer;
 }
 
 .notification-card:hover {
-  background: #f7f9fb;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+  background: rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Title */
+/* titolo */
 .notification-card h6 {
-  font-size: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* testo secondario (se presente) */
+.notification-card small {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* =======================================
+   RESPONSIVE (LinkedIn-like)
+========================================= */
+
+/* MOBILE */
+@media (max-width: 767px) {
   .notifications-container {
     max-width: 100%;
-    padding: 0 15px;
+    padding: 0 8px;
+  }
+}
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 991px) {
+  .notifications-container {
+    max-width: 720px;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 992px) {
+  .notifications-container {
+    max-width: 800px;
   }
 }
