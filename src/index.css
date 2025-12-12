@@ -3,6 +3,12 @@ html {
   overflow-y: scroll; /* Always show vertical scrollbar to prevent layout shift */
 }
 
+body {
+  background: #f3f2ef;
+  min-height: 100vh;
+  margin: 0;
+}
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
