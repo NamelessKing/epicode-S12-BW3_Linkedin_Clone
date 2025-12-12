@@ -1,6 +1,7 @@
 import { Card, Button, Form, CardText, CardTitle } from 'react-bootstrap';
 import './JobsStyles.css'; // 👈 IMPORTANTE
 import { useEffect, useState } from 'react';
+import { useAppSelector } from '../../store';
 
 // const staticJobs = [
 //   {

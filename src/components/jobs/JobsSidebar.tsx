@@ -8,19 +8,19 @@ const JobsSidebar = () => {
   return (
     <div>
       <Card className="jobs-sidebar-card mb-3 shadow-sm">
-          <div
-            className="d-flex justify-content-center"
-            style={{ marginTop: '-36px' }}
-          >
-            <img
-              src={currentUser?.image}
-              alt="immagine del profilo"
-              width={72}
-              height={72}
-              className="rounded-circle border border-2 border-white"
-            />
-          </div>
-          {/* <div className="rounded-circle jobs-profile-placeholder mb-3"></div> */}
+        <div
+          className="d-flex justify-content-center"
+          style={{ marginTop: '-36px' }}
+        >
+          <img
+            src={currentUser?.image}
+            alt="immagine del profilo"
+            width={72}
+            height={72}
+            className="rounded-circle border border-2 border-white"
+          />
+        </div>
+        {/* <div className="rounded-circle jobs-profile-placeholder mb-3"></div> */}
         <Card.Body className="text-center">
           <h6 className="fw-bold mb-1">
             {currentUser?.name} {currentUser?.surname}
