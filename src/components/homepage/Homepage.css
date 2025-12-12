@@ -128,6 +128,10 @@
   background: rgba(0, 0, 0, 0.12);
 }
 
+.linkedin-homepage-scope .li-sort-icon {
+  cursor: pointer;
+}
+
 .linkedin-homepage-scope .li-post-card {
   border-radius: 12px;
   overflow: hidden;
@@ -172,7 +176,12 @@
   display: flex;
   gap: 8px;
   color: rgba(0, 0, 0, 0.6);
+  -webkit-user-select: none;
   user-select: none;
+}
+
+.linkedin-homepage-scope .li-menu-icon {
+  cursor: pointer;
 }
 
 .linkedin-homepage-scope .li-post-text {
