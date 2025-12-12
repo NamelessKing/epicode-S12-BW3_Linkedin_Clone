@@ -45,6 +45,18 @@ export const httpClient = async (
     throw new Error(`HTTP error! status: ${response.status}`);
   }
 
+  const contentType = response.headers.get("content-type");
+  const contentLength = response.headers.get("content-length");
+
+  if (
+    response.status === 204 ||
+    contentLength === "0" ||
+    !contentType?.includes("application/json")
+  ) {
+    return undefined;
+  }
+
+  // Se c'è contenuto JSON, parsalo normalmente
   return response.json();
 };
 

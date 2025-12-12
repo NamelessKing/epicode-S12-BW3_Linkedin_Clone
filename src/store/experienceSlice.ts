@@ -1,18 +1,18 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type {
   Experience,
   CreateExperience,
   UpdateExperience,
-  UpdateExperienceImage
-} from '../types/experience';
+  UpdateExperienceImage,
+} from "../types/experience";
 import {
   fetchAllExperiences,
   fetchExperience,
   createExperience,
   updateExperience,
   deleteExperience,
-  updateExperienceImage
-} from '../api/expirienceApi';
+  updateExperienceImage,
+} from "../api/expirienceApi";
 
 interface ExperiencesState {
   data: Experience[];
@@ -23,11 +23,11 @@ interface ExperiencesState {
 const experienceInitialState: ExperiencesState = {
   data: [],
   loading: false,
-  error: null
+  error: null,
 };
 
 export const fetchAllExp = createAsyncThunk(
-  'experience/fetchAll',
+  "experience/fetchAll",
   async (userId: string) => {
     const response = await fetchAllExperiences(userId);
     return response;
@@ -35,10 +35,10 @@ export const fetchAllExp = createAsyncThunk(
 );
 
 export const fetchExp = createAsyncThunk(
-  'experience/fetchSingle',
+  "experience/fetchSingle",
   async ({
     userId,
-    experienceId
+    experienceId,
   }: {
     userId: string;
     experienceId: string;
@@ -49,10 +49,10 @@ export const fetchExp = createAsyncThunk(
 );
 
 export const createExp = createAsyncThunk(
-  'expercience/create',
+  "expercience/create",
   async ({
     userId,
-    experienceData
+    experienceData,
   }: {
     userId: string;
     experienceData: CreateExperience;
@@ -63,11 +63,11 @@ export const createExp = createAsyncThunk(
 );
 
 export const updateExp = createAsyncThunk(
-  'experience/update',
+  "experience/update",
   async ({
     userId,
     experienceId,
-    experienceData
+    experienceData,
   }: {
     userId: string;
     experienceId: string;
@@ -83,10 +83,10 @@ export const updateExp = createAsyncThunk(
 );
 
 export const deleteExp = createAsyncThunk(
-  'experience/delete',
+  "experience/delete",
   async ({
     userId,
-    experienceId
+    experienceId,
   }: {
     userId: string;
     experienceId: string;
@@ -97,7 +97,7 @@ export const deleteExp = createAsyncThunk(
 );
 
 export const updateImgExp = createAsyncThunk(
-  'experience/updateImage',
+  "experience/updateImage",
   async (experienceImage: UpdateExperienceImage) => {
     const response = await updateExperienceImage(experienceImage);
     return response;
@@ -105,112 +105,113 @@ export const updateImgExp = createAsyncThunk(
 );
 
 const experienceSlice = createSlice({
-  name: 'experience',
+  name: "experience",
   initialState: experienceInitialState,
   reducers: {
     clearExp: (state) => {
       state.data = [];
       state.error = null;
-    }
+    },
   },
-extraReducers: (builder) => {
+  extraReducers: (builder) => {
     builder
-        //fetch GET All
-        .addCase(fetchAllExp.pending, (state) => {
-            state.loading = true;
-            state.error = null
-        })
-        .addCase(fetchAllExp.fulfilled, (state, action) => {
-            state.loading = false;
-            state.data = action.payload
-        })
-        .addCase(fetchAllExp.rejected, (state, action) => {
-            state.loading = false;
-            state.error = action.error.message || "Failed to fetch experiences"
-        })
-        //fetch GET singola
-        .addCase(fetchExp.pending, (state) => {
-            state.loading = true;
-            state.error = null
-        })
-        .addCase(fetchExp.fulfilled, (state, action) => {
-            state.loading = false;
-            const index = state.data.findIndex((exp) => 
-               exp._id === action.payload._id
-            )
-            if( index !== -1 ){ 
-                state.data[index] = action.payload
-            } else { state.data.push(action.payload)}
-        })
-        .addCase(fetchExp.rejected, (state, action) => {
-            state.loading = false;
-            state.error = action.error.message || "Failed to fetch experience"
-        })
-        // fetch POST
-        .addCase(createExp.pending, (state) => {
-            state.loading = true;
-            state.error = null
-        })
-        .addCase(createExp.fulfilled, (state, action) => {
-            state.loading = false;
-            state.data.push(action.payload)
-        })
-        .addCase(createExp.rejected, (state, action) => {
-            state.loading = false;
-            state.error = action.error.message || "Failed to fetch experience"
-        })
-        // fetch PUT
-        .addCase(updateExp.pending, (state) => {
-            state.loading = true;
-            state.error = null
-        })
-        .addCase(updateExp.fulfilled, (state, action) => {
-            state.loading = false;
-            const index = state.data.findIndex((exp) => 
-               exp._id === action.payload._id
-            ) 
-            if( index !== -1 ){ 
-                state.data[index] = action.payload
-            }
-        })
-        .addCase(updateExp.rejected, (state, action) => {
-            state.loading = false;
-            state.error = action.error.message || "Failed to fetch experience"
-        })
-        // fetch DELETE
-        .addCase(deleteExp.pending, (state) => {
-            state.loading = true;
-            state.error = null
-        })
-        .addCase(deleteExp.fulfilled, (state, action) => {
-            state.loading = false;
-            state.data = state.data.filter((exp) => exp._id !== action.payload)
-        })
-        .addCase(deleteExp.rejected, (state, action) => {
-            state.loading = false;
-            state.error = action.error.message || "Failed to fetch experience"
-        })
-        //fetch img
-        .addCase(updateImgExp.pending, (state) => {
-            state.loading = true;
-            state.error = null
-        })
-        .addCase(updateImgExp.fulfilled, (state, action) => {
-            state.loading = false;
-            const index = state.data.findIndex((exp) => 
-               exp._id === action.payload._id
-            ) 
-            if( index !== -1 ){ 
-                state.data[index] = action.payload
-            }
-        })
-        .addCase(updateImgExp.rejected, (state, action) => {
-            state.loading = false;
-            state.error = action.error.message || "Failed to fetch experience"
-        })
-}
+      //fetch GET All
+      .addCase(fetchAllExp.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchAllExp.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchAllExp.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to fetch experiences";
+      })
+      //fetch GET singola
+      .addCase(fetchExp.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchExp.fulfilled, (state, action) => {
+        state.loading = false;
+        const index = state.data.findIndex(
+          (exp) => exp._id === action.payload._id
+        );
+        if (index !== -1) {
+          state.data[index] = action.payload;
+        } else {
+          state.data.push(action.payload);
+        }
+      })
+      .addCase(fetchExp.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to fetch experience";
+      })
+      // fetch POST
+      .addCase(createExp.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(createExp.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data.push(action.payload);
+      })
+      .addCase(createExp.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to fetch experience";
+      })
+      // fetch PUT
+      .addCase(updateExp.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateExp.fulfilled, (state, action) => {
+        state.loading = false;
+        // ✅ FORZARE il re-render: sostituisci l'intero array
+        // Questo assicura che React rilevi il cambio
+        state.data = state.data.map((exp) =>
+          exp._id === action.payload._id ? action.payload : exp
+        );
+      })
+      .addCase(updateExp.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to fetch experience";
+      })
+      // fetch DELETE
+      .addCase(deleteExp.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deleteExp.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = state.data.filter((exp) => exp._id !== action.payload);
+      })
+      .addCase(deleteExp.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to fetch experience";
+      })
+      //fetch img
+      .addCase(updateImgExp.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateImgExp.fulfilled, (state, action) => {
+        state.loading = false;
+        const index = state.data.findIndex(
+          (exp) => exp._id === action.payload._id
+        );
+        if (index !== -1) {
+          state.data[index] = action.payload;
+        }
+      })
+      .addCase(updateImgExp.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to fetch experience";
+      });
+  },
 });
 
 export const { clearExp } = experienceSlice.actions;
 
-export default experienceSlice.reducer
+export default experienceSlice.reducer;

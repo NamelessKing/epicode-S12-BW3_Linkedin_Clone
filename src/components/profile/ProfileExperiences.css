@@ -1,0 +1,69 @@
+/* ============================================ */
+/* PROFILE EXPERIENCES - Styles */
+/* ============================================ */
+
+/* Immagine esperienza */
+.experience-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Placeholder quando non c'è immagine */
+.experience-image-placeholder {
+  width: 100%;
+  height: 80px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-image-placeholder-text {
+  color: #999;
+  font-size: 12px;
+}
+
+/* Icone azioni (edit, delete) */
+.experience-action-icon {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.experience-delete-icon {
+  cursor: pointer;
+  font-size: 18px;
+  color: #dc3545;
+}
+
+/* Footer - Mostra tutte */
+.experience-footer-link {
+  cursor: pointer;
+}
+
+/* Icona camera per upload immagine */
+.experience-camera-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.experience-camera-icon:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.experience-camera-icon svg {
+  font-size: 16px;
+  color: #666;
+}
