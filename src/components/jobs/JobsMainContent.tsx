@@ -1,4 +1,4 @@
-import { Card, Button, Form, Spinner } from 'react-bootstrap';
+import {Container, Row, Card, Button, Form, Spinner } from 'react-bootstrap';
 import './JobsStyles.css'; // 👈 IMPORTANTE
 import { useState } from 'react';
 
@@ -27,7 +27,7 @@ const JobsMainContent = () => {
   const [fetchData, setFetchData] = useState([]);
   const [debounceTimeout, setDebounceTimeout] = useState(null);
   const [visibleJobs, setVisibleJobs] = useState(3);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   const getJobs = () => {
     fetch(URL + searchQuery)
@@ -40,7 +40,7 @@ const JobsMainContent = () => {
       })
       .then((data) => {
         setFetchData(data.data);
-        setIsLoading(false)
+        setIsLoading(false);
         console.log(data.data);
       })
       .catch((error) => console.log('ERRORE', error));
@@ -68,65 +68,74 @@ const JobsMainContent = () => {
             setIsLoading(true);
             const timeout = setTimeout(() => {
               getJobs(e.target.value);
-            }, 2000);
+            }, 1500);
             setDebounceTimeout(timeout);
-            setSearchQuery(e.target.value)
-            
+            setSearchQuery(e.target.value);
           }}
           className="mb-3"
         />
       </Form.Group>
-{isLoading && searchQuery && <Spinner className='d-flex align-items-center'/>}
-{!isLoading && searchQuery && <Card className="jobs-card shadow-sm">
-        {/* HEADER */}
-        <div className="mb-4">
-          <h5 className="fw-bold mb-2">
-            Le principali offerte di lavoro per te
-          </h5>
-          <p className="text-muted small mb-0">
-            In base al tuo profilo, alle tue preferenze e ad attività come
-            candidature, ricerche e salvataggi.
-          </p>
-        </div>
+      <Container>
+        <Row className='justify-content-center'>
+          {isLoading && searchQuery && (
+            <Spinner/>
+          )}
+        </Row>
+      </Container>
+      {!isLoading && searchQuery && (
+        <Card className="jobs-card shadow-sm">
+          {/* HEADER */}
+          <div className="mb-4">
+            <h5 className="fw-bold mb-2">
+              Le principali offerte di lavoro per te
+            </h5>
+            <p className="text-muted small mb-0">
+              In base al tuo profilo, alle tue preferenze e ad attività come
+              candidature, ricerche e salvataggi.
+            </p>
+          </div>
 
-        {/* LISTA JOBS */}
-        <div className="border-top pt-3">
-          {fetchData.slice(0, visibleJobs).map((job) => (
-            <div key={job._id} className="jobs-job-item">
-              <Card.Title className="jobs-job-title mb-2">
-                {job.title}
-              </Card.Title>
-              <Card.Subtitle className="mb-3">
-                {job.publication_date}
-              </Card.Subtitle>
-              <Card.Text className="jobs-company">
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: job.description
-                      .replace(/&lt;/g, '<')
-                      .replace(/&gt;/g, '>')
-                  }}
-                />
-              </Card.Text>
-              <Card.Text className="jobs-company">{job.company}</Card.Text>
-              <Card.Text className="jobs-location">
-                {job.candidate_required_location}
-              </Card.Text>
+          {/* LISTA JOBS */}
+          <div className="border-top pt-3">
+            {fetchData.slice(0, visibleJobs).map((job) => (
+              <div key={job._id} className="jobs-job-item">
+                <Card.Title className="jobs-job-title mb-2">
+                  {job.title}
+                </Card.Title>
+                <Card.Subtitle className="mb-3">
+                  {job.publication_date}
+                </Card.Subtitle>
+                <Card.Text className="jobs-company">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: job.description
+                        .replace(/&lt;/g, '<')
+                        .replace(/&gt;/g, '>')
+                    }}
+                  />
+                </Card.Text>
+                <Card.Text className="jobs-company">{job.company}</Card.Text>
+                <Card.Text className="jobs-location">
+                  {job.candidate_required_location}
+                </Card.Text>
 
-              <Button
-                variant="outline-primary"
-                size="sm"
-                className="jobs-visit-btn"
-              >
-                Salva
-              </Button>
-            </div>
-          ))}
-        </div>
-      {visibleJobs < fetchData.length && (
-        <Button onClick={loadMoreJobs} className='mt-3'>Carica altri 3 lavori</Button>
+                <Button
+                  variant="outline-primary"
+                  size="sm"
+                  className="jobs-visit-btn"
+                >
+                  Salva
+                </Button>
+              </div>
+            ))}
+          </div>
+          {visibleJobs < fetchData.length && (
+            <Button onClick={loadMoreJobs} className="mt-3">
+              Carica altri 3 lavori ({fetchData.length})
+            </Button>
+          )}
+        </Card>
       )}
-      </Card>}
     </>
   );
 };
