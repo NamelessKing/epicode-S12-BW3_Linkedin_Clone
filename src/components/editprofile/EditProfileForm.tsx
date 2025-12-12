@@ -2,7 +2,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
-import "./form.css";
+import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import "./EditProfileForm.css";
 import { useAppSelector } from "../../store";
 import { useAppDispatch } from "../../store";
 import { useState, useEffect } from "react";
@@ -126,164 +129,185 @@ const EditProfileForm = () => {
           variant="success"
           dismissible
           onClose={() => setSubmitSuccess(false)}
+          className="success-toast"
         >
           ✅ Profilo aggiornato con successo!
         </Alert>
       )}
 
-      <Form className="mt-4 px-3" onSubmit={modifyUser}>
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Nome</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder={currentUser?.name}
-            value={state.name}
-            onChange={(e) => {
-              setState({
-                ...state,
-                name: e.target.value,
-              });
-            }}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="surname">
-          <Form.Label>Cognome</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder={currentUser?.surname}
-            value={state.surname}
-            onChange={(e) => {
-              setState({
-                ...state,
-                surname: e.target.value,
-              });
-            }}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder={currentUser?.email}
-            value={state.email}
-            onChange={(e) => {
-              setState({
-                ...state,
-                email: e.target.value,
-              });
-            }}
-          />
-        </Form.Group>
+      <Card className="edit-profile-card shadow-sm">
+        <Card.Header className="edit-profile-header">
+          <h5>✏️ Modifica profilo</h5>
+        </Card.Header>
+        <Card.Body>
+          <Form onSubmit={modifyUser}>
+            {/* Sezione: Informazioni di base */}
+            <div className="form-section">
+              <h6 className="section-title">Informazioni di base</h6>
+              <Row>
+                <Col md={6}>
+                  <Form.Group className="mb-3" controlId="name">
+                    <Form.Label>Nome *</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Inserisci il tuo nome"
+                      value={state.name}
+                      onChange={(e) =>
+                        setState({ ...state, name: e.target.value })
+                      }
+                      required
+                    />
+                  </Form.Group>
+                </Col>
+                <Col md={6}>
+                  <Form.Group className="mb-3" controlId="surname">
+                    <Form.Label>Cognome *</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Inserisci il tuo cognome"
+                      value={state.surname}
+                      onChange={(e) =>
+                        setState({ ...state, surname: e.target.value })
+                      }
+                      required
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
 
-        <Form.Group className="mb-3" controlId="username">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder={currentUser?.username}
-            value={state.username}
-            onChange={(e) => {
-              setState({
-                ...state,
-                username: e.target.value,
-              });
-            }}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="bio">
-          <Form.Label>Biografia</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={4}
-            placeholder={currentUser?.bio}
-            value={state.bio}
-            onChange={(e) => {
-              setState({
-                ...state,
-                bio: e.target.value,
-              });
-            }}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="title">
-          <Form.Label>Titolo</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder={currentUser?.title}
-            value={state.title}
-            onChange={(e) => {
-              setState({
-                ...state,
-                title: e.target.value,
-              });
-            }}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="area">
-          <Form.Label>Area</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder={currentUser?.area}
-            value={state.area}
-            onChange={(e) => {
-              setState({
-                ...state,
-                area: e.target.value,
-              });
-            }}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="image">
-          <Form.Label>Immagine del profilo</Form.Label>
-
-          {/* Mostra immagine corrente dal server */}
-          {state.image && (
-            <div className="mb-3 text-center">
-              <img
-                src={state.image}
-                alt="Immagine corrente"
-                className="current-profile-image"
-              />
-              <p className="text-muted mt-2">Immagine attuale</p>
+              <Row>
+                <Col md={6}>
+                  <Form.Group className="mb-3" controlId="email">
+                    <Form.Label>Email *</Form.Label>
+                    <Form.Control
+                      type="email"
+                      placeholder="esempio@email.com"
+                      value={state.email}
+                      onChange={(e) =>
+                        setState({ ...state, email: e.target.value })
+                      }
+                      required
+                    />
+                  </Form.Group>
+                </Col>
+                <Col md={6}>
+                  <Form.Group className="mb-3" controlId="username">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Il tuo username"
+                      value={state.username}
+                      onChange={(e) =>
+                        setState({ ...state, username: e.target.value })
+                      }
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
             </div>
-          )}
 
-          {/* Input file */}
-          <Form.Control
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-          />
+            {/* Sezione: Informazioni professionali */}
+            <div className="form-section">
+              <h6 className="section-title">Informazioni professionali</h6>
+              <Form.Group className="mb-3" controlId="title">
+                <Form.Label>Titolo professionale</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Es: Full Stack Developer, Marketing Manager"
+                  value={state.title}
+                  onChange={(e) =>
+                    setState({ ...state, title: e.target.value })
+                  }
+                />
+                <Form.Text className="text-muted">
+                  Il tuo ruolo o posizione professionale
+                </Form.Text>
+              </Form.Group>
 
-          {/* Feedback selezione file */}
-          {imageFile && (
-            <Form.Text className="text-success">
-              ✅ File selezionato: {imageFile.name}
-            </Form.Text>
-          )}
-          {!imageFile && (
-            <Form.Text className="text-muted">
-              Seleziona una nuova immagine (JPG, PNG, GIF - Max 5MB)
-            </Form.Text>
-          )}
-        </Form.Group>
+              <Form.Group className="mb-3" controlId="area">
+                <Form.Label>Località</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Es: Milano, Italia"
+                  value={state.area}
+                  onChange={(e) => setState({ ...state, area: e.target.value })}
+                />
+              </Form.Group>
 
-        <Button className="btn btn-primary" type="submit" disabled={loading}>
-          {loading ? (
-            <>
-              <Spinner
-                as="span"
-                animation="border"
-                size="sm"
-                className="me-2"
-              />
-              Salvataggio...
-            </>
-          ) : (
-            "Salva modifiche"
-          )}
-        </Button>
-      </Form>
+              <Form.Group className="mb-3" controlId="bio">
+                <Form.Label>Biografia</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={4}
+                  placeholder="Racconta qualcosa di te..."
+                  value={state.bio}
+                  onChange={(e) => setState({ ...state, bio: e.target.value })}
+                />
+                <Form.Text className="text-muted">
+                  Descrivi la tua esperienza, competenze e obiettivi
+                </Form.Text>
+              </Form.Group>
+            </div>
+
+            {/* Sezione: Immagine profilo */}
+            <div className="form-section">
+              <h6 className="section-title">Immagine profilo</h6>
+              <div className="image-upload-section">
+                {state.image && (
+                  <div className="profile-image-preview-container">
+                    <img
+                      src={state.image}
+                      alt="Anteprima profilo"
+                      className="profile-image-preview"
+                    />
+                  </div>
+                )}
+
+                <Form.Group controlId="image">
+                  <Form.Control
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                  />
+                  {imageFile && (
+                    <Form.Text className="text-success file-feedback">
+                      ✅ File selezionato: <strong>{imageFile.name}</strong>
+                    </Form.Text>
+                  )}
+                  {!imageFile && (
+                    <Form.Text className="text-muted file-feedback">
+                      Formati supportati: JPG, PNG, GIF (Max 5MB)
+                    </Form.Text>
+                  )}
+                </Form.Group>
+              </div>
+            </div>
+
+            {/* Bottone Salva */}
+            <div className="text-end">
+              <Button
+                className="btn-linkedin-primary"
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <Spinner
+                      as="span"
+                      animation="border"
+                      size="sm"
+                      className="me-2"
+                    />
+                    Salvataggio...
+                  </>
+                ) : (
+                  "Salva modifiche"
+                )}
+              </Button>
+            </div>
+          </Form>
+        </Card.Body>
+      </Card>
     </>
   );
 };
