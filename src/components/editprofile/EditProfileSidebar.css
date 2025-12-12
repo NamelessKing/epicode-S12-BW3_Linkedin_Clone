@@ -1,0 +1,9 @@
+.banner {
+  height: 80px;
+  background: url("https://www.transparenttextures.com/patterns/cubes.png"),
+    #000;
+}
+
+.profileImageContainer {
+  margin-top: -40px;
+}

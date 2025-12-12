@@ -1,48 +1,78 @@
-.headerImg {
-  border-radius: inherit;
-  position: relative;
-  max-height: 400px;
-}
+/* Profile Header Card - LinkedIn Style */
 
-.pill {
-  position: absolute;
-  width: 22px;
-  top: 1rem;
-  right: 1rem;
-  background-color: white;
-  color: rgb(0, 0, 0);
+.headerImg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .profileImg {
   position: absolute;
-  top: 4rem;
-  left: 1rem;
-  border: 3px solid white;
-  padding: 0;
+  width: 152px;
+  height: 152px;
   border-radius: 50%;
-  float: left;
+  border: 4px solid white;
+  object-fit: cover;
+  top: -76px;
+  left: 24px;
+  z-index: 1;
 }
 
-.cardBody {
-  padding-top: 3rem;
+.user-info-section {
+  margin-top: 0;
+  max-width: 60%;
 }
 
-.btn {
-  max-height: 20px;
-  font-size: 11px;
-  background-color: white;
-  border: 1px solid #0077b7;
-  color: #0077b7;
-  padding: 0;
-  margin-right: 0.8rem;
-  margin-bottom: 0.3rem;
+.disponibile-card {
+  background-color: #f3f6f8 !important;
 }
 
-.btn:hover {
-  background-color: #0077b7;
-  color: white;
+.disponibile-card:hover {
+  background-color: #e8ecef !important;
+}
+
+.small-text {
+  font-size: 14px;
+}
+
+/* Override Bootstrap button styles for LinkedIn look */
+.btn-primary {
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+}
+
+.btn-primary:hover {
+  background-color: #004182;
+  border-color: #004182;
+}
+
+.btn-outline-primary {
+  color: #0a66c2;
+  border-color: #0a66c2;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0a66c21a;
+  color: #0a66c2;
+  border-color: #0a66c2;
+}
+
+.btn-outline-secondary {
+  color: #666;
+  border-color: #666;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f3f2ef;
+  color: #666;
+  border-color: #666;
 }
 
 a {
-  color: #0077b7;
+  color: #0a66c2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

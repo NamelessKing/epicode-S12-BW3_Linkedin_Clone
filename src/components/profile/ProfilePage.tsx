@@ -14,17 +14,10 @@ const ProfilePage = () => {
         <Row className="justify-content-center w-75 mx-auto">
           <Col xs={12} md={9}>
             <ProfileHeaderCard />
-
-            <ProfileAnalysis />
             <InfoBox />
-            <ProfileServices />
             <ProfileExperiences />
-            {/* <Services />
-            <Activities />
-            <Experience />
-            <Education />
-            <Certificates />
-            <Interests /> / */}
+            <ProfileAnalysis />
+            <ProfileServices />
           </Col>
           <Col xs={12} md={3}>
             <ProfileSidebar />

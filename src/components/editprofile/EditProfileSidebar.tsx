@@ -6,6 +6,7 @@ import {
   BsNewspaper,
   BsCalendarEvent,
 } from "react-icons/bs";
+import "./EditProfileSidebar.css";
 
 const EditProfileSidebar = () => {
   // ==== USER DATA DAL REDUX ====
@@ -16,18 +17,12 @@ const EditProfileSidebar = () => {
   const postImpressions = 650; // Impressioni del post
 
   return (
-    <Card className="mb-3 shadow-sm rounded overflow-hidden">
+    <Card className="mb-3">
       {/* === BANNER === */}
-      <div
-        style={{
-          height: "80px",
-          background:
-            "url('https://www.transparenttextures.com/patterns/cubes.png'), #000",
-        }}
-      ></div>
+      <div className="banner"></div>
 
       {/* === FOTO PROFILO === */}
-      <div className="d-flex justify-content-center" style={{ marginTop: "-40px" }}>
+      <div className="d-flex justify-content-center profileImageContainer">
         <img
           src={user?.image}
           alt="profile"
@@ -106,4 +101,3 @@ const EditProfileSidebar = () => {
 };
 
 export default EditProfileSidebar;
-

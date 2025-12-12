@@ -1,19 +1,24 @@
 /* =======================================
    NETWORK PAGE WRAPPER (solo questa pagina)
+   stile LinkedIn
 ========================================= */
 
 .network-page {
   position: relative;
   min-height: 100vh;
-  padding-top: 40px;
-  padding-bottom: 50px;
-  background: linear-gradient(135deg, #f4f7fb 0%, #eef2f6 100%);
+  padding-top: 24px;      /* come homepage */
+  padding-bottom: 40px;
+  background: #f3f2ef;    /* ✅ grigio LinkedIn */
 }
 
-/* CENTRATURA CONTENUTI */
+/* =======================================
+   CENTRATURA CONTENUTI
+========================================= */
+
 .network-container {
-  max-width: 1000px;
+  max-width: 1128px;      /* ✅ stesso max della homepage */
   margin: 0 auto;
+  padding: 0 12px;        /* padding laterale LinkedIn */
 }
 
 /* =======================================
@@ -21,11 +26,11 @@
 ========================================= */
 
 .network-sidebar-card {
-  background: white;
-  border-radius: 12px;
-  border: 1px solid #e1e1e1;
-  padding: 15px;
-  transition: 0.2s ease;
+  background: #ffffff;
+  border-radius: 10px;    /* LinkedIn usa angoli meno tondi */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 12px;
+  transition: box-shadow 0.2s ease;
 }
 
 .network-sidebar-card:hover {
@@ -33,14 +38,16 @@
 }
 
 .network-menu-item {
-  padding: 10px 5px;
+  padding: 10px 8px;
   cursor: pointer;
   border-radius: 6px;
   transition: background 0.15s ease;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.85);
 }
 
 .network-menu-item:hover {
-  background: #f3f6f9;
+  background: rgba(0, 0, 0, 0.06);
 }
 
 /* =======================================
@@ -48,35 +55,74 @@
 ========================================= */
 
 .network-card {
-  background: white;
-  border-radius: 12px;
-  border: 1px solid #e1e1e1;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* CARD USER */
+/* =======================================
+   CARD USER (stile persone suggerite)
+========================================= */
+
 .network-user-card {
-  background: white;
-  border-radius: 12px;
+  background: #ffffff;
+  border-radius: 10px;
   text-align: center;
-  transition: 0.2s ease;
-  border: 1px solid #e5e5e5;
+  transition: box-shadow 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .network-user-card:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 /* Avatar */
 .network-avatar {
-  width: 70px;
-  height: 70px;
+  width: 72px;            /* allineato homepage */
+  height: 72px;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* =======================================
+   RESPONSIVE (come LinkedIn)
+========================================= */
+
+/* MOBILE */
+@media (max-width: 767px) {
   .network-container {
-    padding: 0 15px;
+    padding: 0 8px;
+  }
+
+  /* se hai sidebar: nascondile */
+  .network-left,
+  .network-right {
+    display: none;
   }
 }
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 991px) {
+  .network-container {
+    max-width: 720px;
+  }
+
+  .network-left,
+  .network-right {
+    display: none;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 992px) {
+  .network-container {
+    max-width: 1128px;
+  }
+
+  .network-left,
+  .network-right {
+    display: block;
+  }
+}
+

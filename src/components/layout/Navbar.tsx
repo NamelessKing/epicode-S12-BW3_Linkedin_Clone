@@ -68,9 +68,18 @@ export default function TopNavbar() {
               </Link>
             </Nav.Item>
 
-            <Nav.Item className="navlink-wrapper">
-              <FaUserFriends />
-              <span>Rete</span>
+            <Nav.Item
+              className={`navlink-wrapper ${
+                location.pathname === "/network" ? "active" : ""
+              }`}
+            >
+              <Link
+                to="/network"
+                className="text-decoration-none d-flex flex-column align-items-center"
+              >
+                <FaUserFriends />
+                <span>Rete</span>
+              </Link>
             </Nav.Item>
 
             <Nav.Item
@@ -87,14 +96,32 @@ export default function TopNavbar() {
               </Link>
             </Nav.Item>
 
-            <Nav.Item className="navlink-wrapper">
-              <FaComments />
-              <span>Messaggistica</span>
+            <Nav.Item
+              className={`navlink-wrapper ${
+                location.pathname === "/messages" ? "active" : ""
+              }`}
+            >
+              <Link
+                to="/messages"
+                className="text-decoration-none d-flex flex-column align-items-center"
+              >
+                <FaComments />
+                <span>Messaggistica</span>
+              </Link>
             </Nav.Item>
 
-            <Nav.Item className="navlink-wrapper">
-              <FaBell />
-              <span>Notifiche</span>
+            <Nav.Item
+              className={`navlink-wrapper ${
+                location.pathname === "/notifications" ? "active" : ""
+              }`}
+            >
+              <Link
+                to="/notifications"
+                className="text-decoration-none d-flex flex-column align-items-center"
+              >
+                <FaBell />
+                <span>Notifiche</span>
+              </Link>
             </Nav.Item>
 
             {/* USER AVATAR DROPDOWN */}
@@ -110,7 +137,11 @@ export default function TopNavbar() {
                 }`}
                 id="user-dropdown"
               >
-                <img src={mockUser.image} alt="me" className="profile-avatar" />
+                <img
+                  src={user?.image || mockUser.image}
+                  alt="me"
+                  className="profile-avatar"
+                />
                 <span>Tu</span>
               </Dropdown.Toggle>
 

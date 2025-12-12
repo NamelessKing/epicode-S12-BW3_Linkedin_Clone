@@ -21,6 +21,7 @@ import {
   updateImgExp,
 } from "../../store/experienceSlice";
 import type { CreateExperience, Experience } from "../../types/experience";
+import { formatDate, calculateDuration } from "../../utils/dateUtils";
 // STYLES
 import "./ProfileExperiences.css";
 
@@ -59,6 +60,12 @@ const ProfileExperiences = function () {
   const closeModal = () => {
     setShowModal(false);
     setSelectedExperience(null);
+  };
+
+  // Converte data ISO in formato YYYY-MM-DD per input date
+  const formatDateForInput = (dateString: string | null): string => {
+    if (!dateString) return "";
+    return dateString.split("T")[0];
   };
 
   // Estrae dati dal form (usato sia per CREATE che UPDATE)
@@ -204,7 +211,9 @@ const ProfileExperiences = function () {
                     <Form.Control
                       type="date"
                       name="startDate"
-                      defaultValue={selectedExperience?.startDate}
+                      defaultValue={formatDateForInput(
+                        selectedExperience?.startDate || null
+                      )}
                       required
                     />
                   </Col>
@@ -213,7 +222,9 @@ const ProfileExperiences = function () {
                     <Form.Control
                       type="date"
                       name="endDate"
-                      defaultValue={selectedExperience?.endDate || ""}
+                      defaultValue={formatDateForInput(
+                        selectedExperience?.endDate || null
+                      )}
                     />
                     <Form.Text className="text-muted">
                       Lascia vuoto se lavori ancora qui
@@ -269,19 +280,19 @@ const ProfileExperiences = function () {
             <Container key={experience._id}>
               <Row>
                 <Col md={2} className="position-relative">
-                  {experience.image ? (
-                    <img
-                      src={experience.image}
-                      alt={experience.company}
-                      className="experience-image"
-                    />
-                  ) : (
-                    <div className="experience-image-placeholder">
+                  <div className="experience-image-container">
+                    {experience.image ? (
+                      <img
+                        src={experience.image}
+                        alt={experience.company}
+                        className="experience-image"
+                      />
+                    ) : (
                       <span className="experience-image-placeholder-text">
                         No Image
                       </span>
-                    </div>
-                  )}
+                    )}
+                  </div>
                   <label
                     htmlFor={`upload-${experience._id}`}
                     className="experience-camera-icon"
@@ -302,15 +313,25 @@ const ProfileExperiences = function () {
                   />
                 </Col>
                 <Col md={9}>
-                  <h6 className="m-0">{experience.role}</h6>
-                  <small className="m-0">{experience.company}</small>
+                  <h6 className="m-0 fw-semibold">{experience.role}</h6>
+                  <small className="m-0 d-block">{experience.company}</small>
                   <small className="text-secondary d-block">
-                    {experience.startDate} · {experience.endDate || "Presente"}
+                    {formatDate(experience.startDate)} -{" "}
+                    {experience.endDate
+                      ? formatDate(experience.endDate)
+                      : "Presente"}{" "}
+                    ·{" "}
+                    {calculateDuration(
+                      experience.startDate,
+                      experience.endDate
+                    )}
                   </small>
                   <small className="text-secondary d-block">
                     {experience.area}
                   </small>
-                  <small>{experience.description}</small>
+                  <small className="d-block mt-2">
+                    {experience.description}
+                  </small>
                 </Col>
                 {/* ============================================ */}
                 {/* AZIONI - Edit e Delete */}
