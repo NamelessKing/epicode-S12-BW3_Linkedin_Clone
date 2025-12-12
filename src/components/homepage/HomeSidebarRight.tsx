@@ -152,6 +152,33 @@ const HomeSidebarRight = () => {
           </div>
         </Card.Body>
       </Card>
+
+      {/* Footer stile LinkedIn */}
+      <div className="text-center px-2">
+        <div className="d-flex flex-wrap justify-content-center gap-2 small text-muted">
+          <span>Informazioni</span>
+          <span>Accessibilità</span>
+          <span>Centro assistenza</span>
+          <span>Privacy e condizioni</span>
+          <span>Opzioni per gli annunci pubblicitari</span>
+          <span>Pubblicità</span>
+          <span>Servizi alle aziende</span>
+          <span>Scarica l'app LinkedIn</span>
+          <span>Altro</span>
+        </div>
+
+        <div className="mt-3 d-flex justify-content-center align-items-center gap-2">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+            alt="LinkedIn logo"
+            width={18}
+            height={18}
+          />
+          <small className="text-muted">
+            LinkedIn Corporation © 2025
+          </small>
+        </div>
+      </div>
     </div>
   )
 };
