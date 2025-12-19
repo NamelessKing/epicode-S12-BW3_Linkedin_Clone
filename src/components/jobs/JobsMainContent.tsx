@@ -68,7 +68,7 @@ const JobsMainContent = () => {
             setIsLoading(true);
             const timeout = setTimeout(() => {
               getJobs(e.target.value);
-            }, 1500);
+            }, 1200);
             setDebounceTimeout(timeout);
             setSearchQuery(e.target.value);
           }}
@@ -130,8 +130,8 @@ const JobsMainContent = () => {
             ))}
           </div>
           {visibleJobs < fetchData.length && (
-            <Button onClick={loadMoreJobs} className="mt-3">
-              Carica altri 3 lavori ({fetchData.length})
+            <Button variant='outline-primary' onClick={loadMoreJobs} className=".btn-other-jobs w-25 d-flex align-self-center mt-3">
+              Carica altri 3 lavori ({visibleJobs} di  {fetchData.length})
             </Button>
           )}
         </Card>
